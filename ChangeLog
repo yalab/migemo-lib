@@ -1,3 +1,10 @@
+2004-11-27  Satoru Takabayashi  <satoru@namazu.org>
+
+	* migemo-regex.rb (MigemoRegex::RegexCompiler::push): Prevent
+	adding an empty string.
+	(MigemoRegex::RegexCompiler::optimize1): Use Regexp.quote and fix
+	the regex creation bug. (preceding ^ is required)
+
 2004-10-12  Hideyuki SHIRAI  <shirai@meadowy.org>
 
 	* migemo.el.in (migemo-accept-process-output-timeout-msec): New

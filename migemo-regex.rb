@@ -58,7 +58,7 @@ module MigemoRegex
 	if prefixpat && prefixpat.match(word) then
 	  false # excluded
 	else
-	  prefixpat = Regexp.new(word.quotemeta)
+	  prefixpat = Regexp.new("^" + Regexp.quote(word))
 	  true # included
 	end
       end
@@ -124,7 +124,9 @@ module MigemoRegex
 
     public
     def push (item)
-      @regex.push(item)
+      if item and item != ""
+        @regex.push(item)
+      end
     end
 
     def uniq
