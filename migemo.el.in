@@ -1,7 +1,7 @@
 ;; -*- mode: Emacs-Lisp; coding: euc-jp-unix -*-
 ;;; migemo.el - Japanese incremental search trough dynamic pattern expansion
 
-;; $Id: migemo.el.in,v 1.4 2004/10/06 10:29:31 shirai Exp $
+;; $Id: migemo.el.in,v 1.5 2004/10/12 03:30:33 shirai Exp $
 ;; Copyright (C) Satoru Takabayashi
 
 ;; Author: Satoru Takabayashi <satoru-t@is.aist-nara.ac.jp>
@@ -134,6 +134,11 @@
   :group 'migemo
   :type 'file)
 
+(defcustom migemo-accept-process-output-timeout-msec 5
+  "*Timeout of migemo process communication."
+  :group 'migemo
+  :type 'integer)
+
 (defconst migemo-mw32-input-method (and (featurep 'meadow) "MW32-IME")
   "Support \"MW32-IME\" for Meadow.")
 
@@ -237,7 +242,8 @@
 		(process-send-string migemo-process (concat word "\n"))
 		(while (not (and (> (point-max) 1)
 				 (eq (char-after (1- (point-max))) ?\n)))
-		  (accept-process-output migemo-process 0 5))
+		  (accept-process-output migemo-process
+					 0 migemo-accept-process-output-timeout-msec))
 		(setq pattern (buffer-substring (point-min) (1- (point-max)))))
 	      (when (and (memq system-type '(windows-nt OS/2 emx))
 			 (> (length pattern) 1)
