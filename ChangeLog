@@ -1,8 +1,8 @@
-2004-08-02  Satoru Takabayashi  <satoru @ namazu.org>
+2004-08-02  Satoru Takabayashi  <satoru@namazu.org>
 
 	* ChangeLog: Obfuscate email addresses to prevent spams.
 
-2004-06-13  Satoru Takabayashi  <satoru @ namazu.org>
+2004-06-13  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo (segment): Refine the pattern.
 
@@ -12,17 +12,17 @@
 
 	* configure.in: Bumped version number to 0.41.
 
-2004-06-10  TAKAHASHI Kaoru  <kaoru @ kaisei.org>
+2004-06-10  TAKAHASHI Kaoru  <kaoru@kaisei.org>
 
 	* migemo.el.in (isearch-highlightify-region): Check
 	`migemo-isearch-enable-p'.
 
-2004-02-10  Satoru Takabayashi  <satoru @ namazu.org>
+2004-02-10  Satoru Takabayashi  <satoru@namazu.org>
 
 	* acinclude.m4 (AM_PATH_RUBYDIR): Use Config::CONFIG["sitelibdir"]
 	instead of Config::CONFIG["sitedir"].
 
-2004-02-08  Hideyuki SHIRAI  <shirai @ meadowy.org>
+2004-02-08  Hideyuki SHIRAI  <shirai@meadowy.org>
 
 	* migemo.el.in (migemo-poor-emacs): Remove variable.
 	(migemo-replace-in-string): Remove debug routine.
@@ -30,7 +30,7 @@
 	value of `migemo-frequent-pattern-alist' and
 	`migemo-pattern-alist' has a pattern include `^G'.
 	
-2003-09-26  Hideyuki SHIRAI  <shirai @ meadowy.org>
+2003-09-26  Hideyuki SHIRAI  <shirai@meadowy.org>
 
 	* migemo.el.in (migemo-emacs21p): Fix a careless mistake.
 	(migemo-if): New macro.
@@ -43,19 +43,19 @@
 	(isearch-mode-map): Change key-binding for
 	`migemo-isearch-toggle-migemo'.
 	
-2003-05-30  Hideyuki SHIRAI  <shirai @ meadowy.org>
+2003-05-30  Hideyuki SHIRAI  <shirai@meadowy.org>
 
 	* migemo.el.in (migemo-get-pattern): Delete unused variable.
 	Execute `white-space-regexp' in original buffer.
 
-2003-05-29  Hideyuki SHIRAI  <shirai @ meadowy.org>
+2003-05-29  Hideyuki SHIRAI  <shirai@meadowy.org>
 
 	* migemo.el (TOP): Change file local variable format.
 	(ALL): Use `defcustom' whole all user variable.
 	(migemo-pre-conv-function, migemo-after-conv-function): New user
 	options.
 
-2003-05-28  Satoru Takabayashi  <satoru @ namazu.org>
+2003-05-28  Satoru Takabayashi  <satoru@namazu.org>
 
 	* Migemo: Version 0.40 Released.
 
@@ -69,7 +69,7 @@
 	(migemo-white-space-regexp): New variable.
 	Add -*- coding: euc-jp-unix -*- to the beginning of the file.
 
-2003-05-27  Satoru Takabayashi  <satoru @ namazu.org>
+2003-05-27  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo-grep (parse_options): Add parens to String#sub method to
 	avoid warnings.
@@ -79,7 +79,7 @@
 
 	* migemo.el.in (migemo-get-pattern): Fix paren matching.
 
-2003-05-26  Satoru Takabayashi  <satoru @ namazu.org>
+2003-05-26  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo.el.in (migemo-get-pattern): Remove the extra ) at the end.
 
@@ -92,11 +92,11 @@
 	* migemo (parse_options): Add parens to String#sub method to avoid
 	warnings.
 
-2003-05-26  Hideyuki SHIRAI  <shirai @ meadowy.org>
+2003-05-26  Hideyuki SHIRAI  <shirai@meadowy.org>
 
 	* migemo.el.in (migemo-get-pattern): Check null word for CMIGEMO.
 
-2003-05-22  Hideyuki SHIRAI  <shirai @ meadowy.org>
+2003-05-22  Hideyuki SHIRAI  <shirai@meadowy.org>
 
 	* migemo.el.in (migemo-search-pattern-alist): New variable.
 	(migemo-search-pattern-get): New inline macro.
@@ -109,7 +109,7 @@
 	`migemo-search-pattern-get'.
 	(isearch-highlightify-region): Ditto.
 
-2003-05-20  Hideyuki SHIRAI  <shirai @ meadowy.org>
+2003-05-20  Hideyuki SHIRAI  <shirai@meadowy.org>
 
 	* migemo.el.in (top): Modify comment for CMIGEMO.
 	(migemo-dictionary, migemo-user-dictionary)
@@ -117,7 +117,7 @@
 	(migemo-init): Allow `nil' of `migemo-user-dictionary' and
 	`migemo-regex-dictionary'.
 
-2003-05-19  Hideyuki SHIRAI  <shirai @ meadowy.org>
+2003-05-19  Hideyuki SHIRAI  <shirai@meadowy.org>
 
 	* migemo.el.in (migemo-use-pattern-alist)
 	(TOP): Use `when' and `unless' instead of `if'.
@@ -146,7 +146,7 @@
 	`search-upper-case'.
 	(TOP): Add hook `migemo-pattern-alist-save' to `kill-emacs-hook'.
 
-2003-05-13  Satoru Takabayashi  <satoru @ namazu.org>
+2003-05-13  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo.el.in (migemo-get-pattern): Remove the CR at the end of a
 	pattern.
@@ -164,39 +164,39 @@
 	well as annotations.
 	- Thanks to Kazuhiro NISHIYAMA's for the suggestion [migemo:00196]
 
-2003-04-28  Satoru Takabayashi  <satoru @ namazu.org>
+2003-04-28  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo.el.in: Apply Kazuhiro NISHIYAMA's patch [migemo:00195]
 
-2003-03-24  Hideyuki SHIRAI  <shirai @ meadowy.org>
+2003-03-24  Hideyuki SHIRAI  <shirai@meadowy.org>
 
 	* migemo.el.in (TOP): Change the way of determination for
 	migemo-isearch-yank-char|work().
 
-2003-03-24  Satoru Takabayashi  <satoru @ namazu.org>
+2003-03-24  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo.el.in (migemo-isearch-yank-word): New function.
 	(migemo-isearch-yank-char): New function.
 	- thanks to the patch by Hideyuki SHIRAI
-	<shirai @ rdmg.mgcs.mei.co.jp> [migemo:00171]
+	<shirai at rdmg.mgcs.mei.co.jp> [migemo:00171]
 
-2002-11-29  Satoru Takabayashi  <satoru @ namazu.org>
+2002-11-29  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo.rb (Migemo::expand_kanas): Add special handling for
-	"ny" for ÆþÎÏ
-	- before: ¤ó[¤Ã¤ä¤æ¤è]
-	- after:  ¤Ë[¤ã¤å¤ç]
-	- Thanks to: YOSHIMURA Shunji <Shunji.Yoshimura @ jp.sony.com> for
+	"ny" for $BF~NO(B
+	- before: $B$s(B[$B$C$d$f$h(B]
+	- after:  $B$K(B[$B$c$e$g(B]
+	- Thanks to: YOSHIMURA Shunji <Shunji.Yoshimura at jp.sony.com> for
 	the bug report.
 
-2002-11-15  Satoru Takabayashi  <satoru @ namazu.org>
+2002-11-15  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo.rb (Migemo::expand_kanas): Add special handling for
-	"essy" for ¥¨¥Ã¥·¥ã¡¼
-	- before:  essy => essy|£å£ó£ó£ù|¤¨s¤·[¤ã¤å¤ç]|¥¨s¥·[¥ã¥å¥ç]
-	- after:   essy => essy|£å£ó£ó£ù|¤¨¤Ã¤·[¤ã¤å¤ç]|¥¨¥Ã¥·[¥ã¥å¥ç]
+	"essy" for $B%(%C%7%c!<(B
+	- before:  essy => essy|$B#e#s#s#y(B|$B$((Bs$B$7(B[$B$c$e$g(B]|$B%((Bs$B%7(B[$B%c%e%g(B]
+	- after:   essy => essy|$B#e#s#s#y(B|$B$($C$7(B[$B$c$e$g(B]|$B%(%C%7(B[$B%c%e%g(B]
 
-2002-10-22  Satoru Takabayashi  <satoru @ namazu.org>
+2002-10-22  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo-dict.rb (MigemoDict::lookup): downcase pattern.
 	(MigemoDictCache::lookup): Ditto.
@@ -222,32 +222,32 @@
 
 	* migemo.rb (Migemo::expand_kanas): downcase pattern.
 
-2002-10-21  Satoru Takabayashi  <satoru @ namazu.org>
+2002-10-21  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo.el.in: Support isearch-highlightify-region for XEmacs 21.
-	- by applying a patch by Hiroyuki Komatsu <komatsu @ taiyaki.org>.
+	- by applying a patch by Hiroyuki Komatsu <komatsu at taiyaki.org>.
 	[migemo:00159]
 
-2002-01-25  Satoru Takabayashi  <satoru @ namazu.org>
+2002-01-25  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo (parse_options): Add -l, --logging option.
 	(print_usage): Modify the usage message.
 	(Logger): New class.
 	(main): Use Logger if -l option is given.
 
-2002-01-24  Hideyuki SHIRAI  <shirai @ meadowy.org>
+2002-01-24  Hideyuki SHIRAI  <shirai@meadowy.org>
 
 	* migemo.el.in (migemo-dabbrev-expand): Fix the bound option of
 	`re-search-forward'.
 
-2001-08-14  Satoru Takabayashi  <satoru @ namazu.org>
+2001-08-14  Satoru Takabayashi  <satoru@namazu.org>
 
 	* Migemo: Version 0.32 Released.
 
-2001-08-13  Satoru Takabayashi  <satoru @ namazu.org>
+2001-08-13  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo-dict: Use Hiragana for head words.
-	- suggested by "Muraoka Taro" <koron @ tka.att.ne.jp>
+	- suggested by "Muraoka Taro" <koron at tka.att.ne.jp>
 
 	* genchars.sh: Use romkan.rb to create frequent ngrams.
 
@@ -259,7 +259,7 @@
 
 	* migemo.rb (VERSION): Bumped version number to 0.32.
 
-2001-07-30  Satoru Takabayashi  <satoru @ namazu.org>
+2001-07-30  Satoru Takabayashi  <satoru@namazu.org>
 
 	* Migemo: Version 0.31 Released.
 
@@ -268,25 +268,25 @@
 	* migemo.el.in (migemo-get-pattern): Don't use the separator "ok".
 	(migemo-options): Likewise.
 
-2001-07-16  Satoru Takabayashi  <satoru @ namazu.org>
+2001-07-16  Satoru Takabayashi  <satoru@namazu.org>
 
-	* migemo-client: Apply Akira Yamada <akira @ arika.org>'s patch.
+	* migemo-client: Apply Akira Yamada <akira at arika.org>'s patch.
 
-	* migemo-server: Apply Akira Yamada <akira @ arika.org>'s patch.
+	* migemo-server: Apply Akira Yamada <akira at arika.org>'s patch.
 
-2001-07-15  Satoru Takabayashi  <satoru @ namazu.org>
+2001-07-15  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo-client: New file.
 
 	* migemo-server: Print "Content-Length" header.
 
-2001-07-15  Hidai Kenichi  <hidai @ symbio.jst.go.jp>
+2001-07-15  Hidai Kenichi  <hidai@symbio.jst.go.jp>
 
 	* Makefile.am: Remove unnecessary source specification (*.rb)
 
 	* migemo-cache.rb: Fix misspell (optimize -> optimization)
 
-2001-07-13  Satoru Takabayashi  <satoru @ namazu.org>
+2001-07-13  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo-server: New file.
 
@@ -294,16 +294,16 @@
 	(lookup): Allow @pattern == ""
 
 	* migemo.rb: Use (?: instead of ( for perl or ruby type regexes.
-	Thanks to Kazuhiro NISHIYAMA <zn @ mbf.nifty.com> for the suggestion.
+	Thanks to Kazuhiro NISHIYAMA <zn at mbf.nifty.com> for the suggestion.
 
-2001-07-12  Satoru Takabayashi  <satoru @ namazu.org>
+2001-07-12  Satoru Takabayashi  <satoru@namazu.org>
 
 	* Migemo: Version 0.3 Released.
 
 	* migemo.el.in: Use line-beginning-position and line-end-position
 	instead of point-at-bol and point-at-eol.
 
-2001-07-11  Satoru Takabayashi  <satoru @ namazu.org>
+2001-07-11  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo.rb: String#to_fullwidth: New method.
 
@@ -323,7 +323,7 @@
 
 	* migemo.rb: Fix character class problem: []-], [\\] [\]
 
-2001-07-10  Satoru Takabayashi  <satoru @ namazu.org>
+2001-07-10  Satoru Takabayashi  <satoru@namazu.org>
 
 	* configure.in: Check Ruby/Bsearch and Ruby/Romkan.
 
@@ -331,13 +331,13 @@
 
 	* tests/ruby-syntax.sh: New file.
 
-2001-07-08  Satoru Takabayashi  <satoru @ namazu.org>
+2001-07-08  Satoru Takabayashi  <satoru@namazu.org>
 
 	* Makefile.am (bin_SCRIPTS): Add migemo-grep.
 
 	* migemo-grep: New file.
 
-2001-07-07  Satoru Takabayashi  <satoru @ namazu.org>
+2001-07-07  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo: Add -r, --regex-dict=DICT option.
 
@@ -353,7 +353,7 @@
 
 	* regex-dict.sample: New file.
 
-2001-07-06  Satoru Takabayashi  <satoru @ namazu.org>
+2001-07-06  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo.ja.rd: New file.
 
@@ -363,21 +363,21 @@
 
 	* tests/test-dict: New file.
 
-2001-07-04  Satoru Takabayashi  <satoru @ namazu.org>
+2001-07-04  Satoru Takabayashi  <satoru@namazu.org>
 
 	* tests/cache.sh: New file.
 
 	* tests/convert.sh: New file.
 
-2001-07-03  Satoru Takabayashi  <satoru @ namazu.org>
+2001-07-03  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo.rb: Rewrite the optimizing routines.
 
-2001-06-03  Satoru Takabayashi  <satoru @ namazu.org>
+2001-06-03  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo-dict.rb: Support a Sary-indexed dictionary.
 
-2001-05-04  Satoru Takabayashi  <satoru @ namazu.org>
+2001-05-04  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo.rb: New file.
 
@@ -385,34 +385,34 @@
 
 	* The development of perl version of Migemo is over. We switch to Ruby.
 
-2001-05-02  Satoru Takabayashi  <satoru @ namazu.org>
+2001-05-02  Satoru Takabayashi  <satoru@namazu.org>
 
 	* Lingua-Romkan/Romkan.pm (VERSION): Bumped version number to 0.17.
 
-	* Lingua-Romkan/Romkan.pm (katahira): Add s/¥ô/¤¦¡«/ handling.
-	(hirakata): Add s/¤¦¡«/¥ô/ handling.
+	* Lingua-Romkan/Romkan.pm (katahira): Add s/$B%t(B/$B$&!+(B/ handling.
+	(hirakata): Add s/$B$&!+(B/$B%t(B/ handling.
 
-2001-04-24  Hideyuki SHIRAI  <shirai @ meadowy.org>
+2001-04-24  Hideyuki SHIRAI  <shirai@meadowy.org>
 
 	* migemo.el.in (migemo-mw32-input-method): New defconst.
 	(isearch-mode): Check "MW32-IME" for Meadow with Windows IME.
 	(isearch-done): Ditto.
 
-2001-04-20  Satoru Takabayashi  <satoru @ csl.sony.co.jp>
+2001-04-20  Satoru Takabayashi  <satoru@csl.sony.co.jp>
 
 	* configure.in (AM_INIT_AUTOMAKE): Bumped version number to 0.22.
 
-2001-03-14  Satoru Takabayashi  <satoru-t @ is.aist-nara.ac.jp>
+2001-03-14  Satoru Takabayashi  <satoru-t@is.aist-nara.ac.jp>
 
 	* migemo.pl (emacsize): Add `{' for avoinding "imcomplete pattern"
 	error occurred in Emacs 21.
 
-2001-03-12  Satoru Takabayashi  <satoru-t @ is.aist-nara.ac.jp>
+2001-03-12  Satoru Takabayashi  <satoru-t@is.aist-nara.ac.jp>
 
 	* migemo.el.in (migemo-get-pattern): Set timeout to
 	accept-process-output for avoiding infinite loops.
 
-2001-03-12  Hideyuki SHIRAI  <shirai @ meadowy.org>
+2001-03-12  Hideyuki SHIRAI  <shirai@meadowy.org>
 
 	* migemo.el.in (migemo-process): Use 'defvar' instead of 'setq'.
 	(migemo-buffer): Ditto.
@@ -428,7 +428,7 @@
 	(migemo-isearch-lazy-highlight-search): New function, fake
 	isearch-lazy-highlight() in Emacs21.
 
-2001-03-11  Satoru Takabayashi  <satoru-t @ is.aist-nara.ac.jp>
+2001-03-11  Satoru Takabayashi  <satoru-t@is.aist-nara.ac.jp>
 
 	* migemo.el.in (migemo-current-input-method): Add
 	(setq migemo-current-input-method nil) for avoiding the following
@@ -436,21 +436,21 @@
 	  ** assignment to free variable migemo-current-input-method
 	  ** reference to free variable migemo-current-input-method
 
-2001-02-17  Satoru Takabayashi  <satoru-t @ is.aist-nara.ac.jp>
+2001-02-17  Satoru Takabayashi  <satoru-t@is.aist-nara.ac.jp>
 
 	* migemo.el.in (migemo-dabbrev-expand):
 	s/jrsearch-backward/migemo-backward/
-	Thanks to Hiroyuki Komatsu <komatsu @ taiyaki.org> for reporting.
+	Thanks to Hiroyuki Komatsu <komatsu at taiyaki.org> for reporting.
 
 	* migemo: Version 0.21 Released.
 
 	* migemo.el.in (migemo-dabbrev-expand): New function.
 
-2001-02-03  Satoru Takabayashi  <satoru-t @ is.aist-nara.ac.jp>
+2001-02-03  Satoru Takabayashi  <satoru-t@is.aist-nara.ac.jp>
 
 	* jrsearch.pl (emacsize): Add ['=`] handling.
 
-2000-12-02  Satoru Takabayashi  <satoru-t @ is.aist-nara.ac.jp>
+2000-12-02  Satoru Takabayashi  <satoru-t@is.aist-nara.ac.jp>
 
 	* jrsearch.pl (emacsize): Add `<' and `>' handling.
 
@@ -461,11 +461,11 @@
 	* Makefile.am (clean-local): New rule.
 
 	* jrsearch.pl (main): Fix `ok' bug.  Thanks to SAWADA Katsuya
-	<ama @ igs.inter-gate.co.jp> for reporting.
+	<ama at igs.inter-gate.co.jp> for reporting.
 
 	* configure.in (AM_INIT_AUTOMAKE): Bumped version number to 0.20
 
-2000-10-12  Satoru Takabayashi  <satoru-t @ is.aist-nara.ac.jp>
+2000-10-12  Satoru Takabayashi  <satoru-t@is.aist-nara.ac.jp>
 
 	* jrsearch: Version 0.19 Released.
 
@@ -475,29 +475,29 @@
 
 	* jrsearch.pl: Send `ok' message.
 
-2000-07-13  Satoru Takabayashi  <satoru-t @ is.aist-nara.ac.jp>
+2000-07-13  Satoru Takabayashi  <satoru-t@is.aist-nara.ac.jp>
 
 	* Lingua-Romkan/Romkan.pm: Bumped version number to 0.16.
 
 	* Lingua-Romkan/Romkan.pm (isvowel): New function.
 
-2000-07-27  Satoru Takabayashi  <satoru-t @ is.aist-nara.ac.jp>
+2000-07-27  Satoru Takabayashi  <satoru-t@is.aist-nara.ac.jp>
 
 	* jrsearch.el.in (jrsearch-get-options): Avoid using ` macro. Use
-	(list) instead. Thanks to endo-h @ remus.dti.ne.jp (Hideyuki
+	(list) instead. Thanks to endo-h at remus.dti.ne.jp (Hideyuki
 	Endo) for the patch.
 
 	* elisp-comp: Change the order of emacs' command line options to
-	support mule2.3 @ 19.28. Thanks to endo-h @ remus.dti.ne.jp (Hideyuki
+	support mule2.3@19.28. Thanks to endo-h at remus.dti.ne.jp (Hideyuki
 	Endo) for the patch.
 
-2000-07-12  Satoru Takabayashi  <satoru-t @ is.aist-nara.ac.jp>
+2000-07-12  Satoru Takabayashi  <satoru-t@is.aist-nara.ac.jp>
 
 	* jrsearch.el.in (jrsearch-init): Apply
-	TSUCHIYA Masatoshi <tsuchiya @ pine.kuee.kyoto-u.ac.jp>'s patch.
+	TSUCHIYA Masatoshi <tsuchiya at pine.kuee.kyoto-u.ac.jp>'s patch.
 	[ELF:00868]
 
-2000-07-11  Satoru Takabayashi  <satoru-t @ is.aist-nara.ac.jp>
+2000-07-11  Satoru Takabayashi  <satoru-t@is.aist-nara.ac.jp>
 
 	* jrsearch: Version 0.18 Released.
 
@@ -506,7 +506,7 @@
 	* jrsearch.pl (optimize): Simplfy and be efficient.
 	(optimize): Bring sort process here from process().
 
-2000-07-10  Satoru Takabayashi  <satoru-t @ is.aist-nara.ac.jp>
+2000-07-10  Satoru Takabayashi  <satoru-t@is.aist-nara.ac.jp>
 
 	* configure.in (AM_INIT_AUTOMAKE): Bumped version number to 0.18
 	(ROMKAN_VERSION): Get the latest Romkan.pm VERSION automatically.
@@ -527,7 +527,7 @@
 	* jrsearch.el.in (jrsearch-get-options): New function.
 	(jrsearch-pl-options): Abolished.
 
-2000-07-09  Satoru Takabayashi  <satoru-t @ is.aist-nara.ac.jp>
+2000-07-09  Satoru Takabayashi  <satoru-t@is.aist-nara.ac.jp>
 
 	* jrsearch.el.in (jrsearch-dir): New variable.
 	(jrsearch-pl): Abolished.
@@ -537,7 +537,7 @@
 	* jrsearch.pl: Renamed from jrsearch.pl.in.
 
 	* jrsearch.el.in (jrsearch): Add (provide 'jrsearch).
-	Thanks to MIYOSHI Masanori <miyoshi @ hrl.hitachi.co.jp> for the
+	Thanks to MIYOSHI Masanori <miyoshi at hrl.hitachi.co.jp> for the
 	suggestion.
 
 	* jrsearch.pl.in (parse_options): Add -I option.
@@ -551,7 +551,7 @@
 
 	* jrsearch.pl.in (process): Employ Schwartzian Transform.
 	(init_hanzen): Modify ".", ",", "\\", `"', "*", "/", "#", "[", "]".
-	Thanks to tatuo-y @ is.aist-nara.ac.jp (YAMASITA Tatuo) for the idea.
+	Thanks to tatuo-y at is.aist-nara.ac.jp (YAMASITA Tatuo) for the idea.
 
 	* Makefile.am (jrsearch.pl): New rule.
 	(EXTRA_DIST): Updated.
@@ -571,11 +571,11 @@
 
 	* jrsearch.pl (process): Abolish the condition of length($roma) == 1;
 
-2000-07-07  Satoru Takabayashi  <satoru-t @ is.aist-nara.ac.jp>
+2000-07-07  Satoru Takabayashi  <satoru-t@is.aist-nara.ac.jp>
 
 	* configure.in (AM_INIT_AUTOMAKE): Bumped version number to 0.17
 
-2000-07-06  Satoru Takabayashi  <satoru-t @ is.aist-nara.ac.jp>
+2000-07-06  Satoru Takabayashi  <satoru-t@is.aist-nara.ac.jp>
 
 	* jrsearch: Version 0.16 Released.
 
@@ -630,7 +630,7 @@
 	(process): Change the regex for inserting $insert_string. It
 	solved line-across isearch-backword problem.
 
-2000-07-05  Satoru Takabayashi  <satoru-t @ is.aist-nara.ac.jp>
+2000-07-05  Satoru Takabayashi  <satoru-t@is.aist-nara.ac.jp>
 
 	* Lingua-Romkan/Romkan.pm (get_hepburntab): Add "dyi" entry.
 	(get_kunreitab): Add "dyi" entry.
@@ -682,7 +682,7 @@
 
 	* jrsearch.pl (main): Do not convert $roma into Hepburn.
 
-2000-07-04  Satoru Takabayashi  <satoru-t @ is.aist-nara.ac.jp>
+2000-07-04  Satoru Takabayashi  <satoru-t@is.aist-nara.ac.jp>
 
 	* jrsearch.el.in (jrsearch-expand-pattern): New function.
 
@@ -696,7 +696,7 @@
 
 	* Support Emacs 19.28. Thanks to KAWABE Kou for the code.
 
-2000-07-03  Satoru Takabayashi  <satoru-t @ is.aist-nara.ac.jp>
+2000-07-03  Satoru Takabayashi  <satoru-t@is.aist-nara.ac.jp>
 
 	* Support "Zenkaku" alha-num-symbol-string. Thanks to KAWABE Kou
 	for giving me the idea.
