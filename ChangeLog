@@ -1,3 +1,9 @@
+2004-10-06  Hideyuki SHIRAI  <shirai@meadowy.org>
+
+	* migemo.el.in (migemo-isearch-toggle-migemo): Refresh
+	lazy-highlight.
+	- Thanks to Masayuki FUJII's for the suggestion.
+
 2004-08-02  Satoru Takabayashi  <satoru@namazu.org>
 
 	* ChangeLog: Obfuscate email addresses to prevent spams.

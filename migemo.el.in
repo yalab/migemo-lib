@@ -1,7 +1,7 @@
 ;; -*- mode: Emacs-Lisp; coding: euc-jp-unix -*-
 ;;; migemo.el - Japanese incremental search trough dynamic pattern expansion
 
-;; $Id: migemo.el.in,v 1.3 2004/06/12 20:10:36 satoru-t Exp $
+;; $Id: migemo.el.in,v 1.4 2004/10/06 10:29:31 shirai Exp $
 ;; Copyright (C) Satoru Takabayashi
 
 ;; Author: Satoru Takabayashi <satoru-t@is.aist-nara.ac.jp>
@@ -624,6 +624,9 @@ This function used with Megemo feature."
     (unless (or isearch-regexp isearch-word)
       (discard-input)
       (setq migemo-isearch-enable-p (not migemo-isearch-enable-p)))
+    (when (fboundp 'isearch-lazy-highlight-new-loop)
+      (let ((isearch-lazy-highlight-last-string nil))
+	(isearch-lazy-highlight-new-loop)))
     (isearch-message))
 
   (defun migemo-isearch-yank-char ()
