@@ -82,10 +82,10 @@ end
 # segment("fooB") => ["foo", "B"]
 # segment("fooBar") => ["foo", "Bar"]
 # segment("FooBAR") => ["foo", "BAR"]
-# segment("foo..")  => ["foo.."]
-# segment("foo..Bar..") => ["foo..", "Bar.."]
+# segment("foo.")  => ["foo", "."]
+# segment("foo::Bar123") => ["foo", ":", ":", "Bar", "123"]
 def segment (pattern)
-  pattern.scan(/[A-Z]?[^A-Z]+|[A-Z]+/)
+  pattern.scan(/[A-Z]?[a-z]+|[A-Z]+|[0-9]+|[^a-zA-Z0-9]/)
 end
 
 def main

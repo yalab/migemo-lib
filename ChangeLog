@@ -1,8 +1,12 @@
 2004-06-13  Satoru Takabayashi  <satoru@namazu.org>
 
+	* migemo (segment): Refine the pattern.
+
 	* migemo.el.in (migemo-replace-in-string): Simplified for performance.
 	(migemo-get-pattern): Adopt the change of migemo-replace-in-string.
 	(migemo-if): Removed.
+
+	* configure.in: Bumped version number to 0.41.
 
 2004-06-10  TAKAHASHI Kaoru  <kaoru@kaisei.org>
 
