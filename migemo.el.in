@@ -1,7 +1,7 @@
 ;; -*- mode: Emacs-Lisp; coding: euc-jp-unix -*-
 ;;; migemo.el - Japanese incremental search trough dynamic pattern expansion
 
-;; $Id: migemo.el.in,v 1.2 2004/06/10 10:20:05 kaworu Exp $
+;; $Id: migemo.el.in,v 1.3 2004/06/12 20:10:36 satoru-t Exp $
 ;; Copyright (C) Satoru Takabayashi
 
 ;; Author: Satoru Takabayashi <satoru-t@is.aist-nara.ac.jp>
@@ -203,24 +203,14 @@
 	(process-kill-without-query migemo-process)
 	t)))
 
-(defmacro migemo-if (cond then &rest else)
-  "Like `if', except that it evaluates COND at compile-time."
-  (if (eval cond) then (` (progn  (,@ else)))))
-(put 'migemo-if 'lisp-indent-function 2)
-
-(migemo-if (fboundp 'replace-in-string)
-    (defalias 'migemo-replace-in-string 'replace-in-string)
-  (defun migemo-replace-in-string (string regexp rep &optional literal)
-    "Replace all matches for REGEXP with REP in STRING."
-    (let ((start 0)
-	  (len (length rep)))
-      (save-match-data
-	(while (setq start (string-match regexp string start))
-	  (setq string (concat (substring string 0 (match-beginning 0))
-			       rep
-			       (substring string (match-end 0))))
-	  (setq start (+ start len))))
-      string)))
+(defun migemo-replace-in-string (string from to)
+  (with-temp-buffer
+    (insert string)
+    (goto-char (point-min))
+    (let ((migemo-do-isearch nil))
+      (while (search-forward from nil t)
+        (replace-match to nil t)))
+    (buffer-substring (point-min) (point-max))))
 
 (defun migemo-get-pattern (word)
   (if (equal word "")
@@ -265,7 +255,7 @@
       (if (and migemo-after-conv-function
 	       (functionp migemo-after-conv-function))
 	  (funcall migemo-after-conv-function word pattern)
-	(migemo-replace-in-string pattern "\a" migemo-white-space-regexp t)))))
+	(migemo-replace-in-string pattern "\a" migemo-white-space-regexp)))))
 
 (defun migemo-pattern-alist-load (file)
   "Load migemo alist file."
