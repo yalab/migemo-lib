@@ -1,3 +1,8 @@
+2004-06-10  TAKAHASHI Kaoru  <kaoru@kaisei.org>
+
+	* migemo.el.in (isearch-highlightify-region): Check
+	`migemo-isearch-enable-p'.
+
 2004-02-10  Satoru Takabayashi  <satoru@namazu.org>
 
 	* acinclude.m4 (AM_PATH_RUBYDIR): Use Config::CONFIG["sitelibdir"]

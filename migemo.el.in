@@ -1,7 +1,7 @@
 ;; -*- mode: Emacs-Lisp; coding: euc-jp-unix -*-
 ;;; migemo.el - Japanese incremental search trough dynamic pattern expansion
 
-;; $Id: migemo.el.in,v 1.1 2004/06/09 09:50:53 satoru-t Exp $
+;; $Id: migemo.el.in,v 1.2 2004/06/10 10:20:05 kaworu Exp $
 ;; Copyright (C) Satoru Takabayashi
 
 ;; Author: Satoru Takabayashi <satoru-t@is.aist-nara.ac.jp>
@@ -608,15 +608,14 @@ This function used with Megemo feature."
   (defalias 'isearch-lazy-highlight-search 'migemo-isearch-lazy-highlight-search))
 
 ;;;; for isearch-highlightify-region (XEmacs 21)
-;; Avoid byte compile warningsfor other emacsen
-(defvar isearch-highlightify-region)
-
 (when (fboundp 'isearch-highlightify-region)
   (defadvice isearch-highlightify-region (around migemo-highlightify-region
 						 activate)
     "adviced by migemo."
-    (let ((isearch-string (migemo-search-pattern-get isearch-string))
-	  (isearch-regexp t))
+    (if migemo-isearch-enable-p
+	(let ((isearch-string (migemo-search-pattern-get isearch-string))
+	      (isearch-regexp t))
+	  ad-do-it)
       ad-do-it)))
 
 ;; supports C-w C-d for GNU emacs only [migemo:00171]
