@@ -20,11 +20,7 @@ include MigemoRegex
 class String
   # Hiragana to Katakana
   def to_katakana
-    self.gsub(/¤¦¡«/, '\\1¥ô').tr('¤¡-¤ó', '¥¡-¥ó')
-  end
-
-  def quotemeta
-    self.gsub(/([^ \w])/, '\\\\\\1')
+    self.gsub(/¤¦¡«/, '¥ô').tr('¤¡-¤ó', '¥¡-¥ó')
   end
 
   def first
@@ -68,7 +64,9 @@ class String
     "x" => "£ø", "y" => "£ù", "z" => "£ú", "{" => "¡Ð",
     "|" => "¡Ã", "}" => "¡Ñ", "~" => "¡±"} #'
 
-  HANZEN_RE = Regexp.new(HANZEN_TAB.keys.sort.map {|x| x.quotemeta}.join('|'))
+  HANZEN_RE = Regexp.new(HANZEN_TAB.keys.sort.map {|x| 
+                           Regexp.quote(x)
+                         }.join('|'))
 
   def to_fullwidth
     self.gsub(HANZEN_RE) {|s| HANZEN_TAB[s]}

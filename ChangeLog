@@ -1,5 +1,16 @@
 2004-11-27  Satoru Takabayashi  <satoru@namazu.org>
 
+	* migemo (segment): Modify the regex.
+
+	* migemo.rb.in (String::to_katakana): Remove unnecessary \\1 in the
+	regex. 
+
+	* migemo.rb.in (String::quotemeta): Removed.
+	(String): Use Regexp.quote
+	* migemo-regex.rb
+	(MigemoRegex::RegexEmacsRenderer::escape_string): Ditto. 
+	(MigemoRegex::RegexRenderer::insert): Ditto.
+
 	* migemo-regex.rb (MigemoRegex::RegexCompiler::push): Prevent
 	adding an empty string.
 	(MigemoRegex::RegexCompiler::optimize1): Use Regexp.quote and fix
