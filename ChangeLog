@@ -1,3 +1,8 @@
+2005-02-25  Hideyuki SHIRAI  <shirai@meadowy.org>
+
+	* migemo.el.in (migemo-isearch-toggle-migemo): Follow new
+	arguments of `isearch-lazy-highlight-new-loop'.
+
 2004-11-27  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo (segment): Modify the regex.
