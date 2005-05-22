@@ -1,7 +1,7 @@
 ;; -*- mode: Emacs-Lisp; coding: euc-jp-unix -*-
 ;;; migemo.el - Japanese incremental search trough dynamic pattern expansion
 
-;; $Id: migemo.el.in,v 1.6 2005/02/25 03:52:34 shirai Exp $
+;; $Id: migemo.el.in,v 1.7 2005/05/22 08:39:02 satoru-t Exp $
 ;; Copyright (C) Satoru Takabayashi
 
 ;; Author: Satoru Takabayashi <satoru-t@is.aist-nara.ac.jp>
@@ -139,6 +139,11 @@
   :group 'migemo
   :type 'integer)
 
+(defcustom migemo-isearch-min-length 1
+  "*Minimum length of word to start isearch."
+  :group 'migemo
+  :type 'integer)
+
 (defconst migemo-mw32-input-method (and (featurep 'meadow) "MW32-IME")
   "Support \"MW32-IME\" for Meadow.")
 
@@ -218,8 +223,10 @@
     (buffer-substring (point-min) (point-max))))
 
 (defun migemo-get-pattern (word)
-  (if (equal word "")
-      ""
+  (cond
+   ((< (length word) migemo-isearch-min-length)
+    "")
+   (t
     (let (deactivate-mark pattern freq alst)
       (set-text-properties 0 (length word) nil word)
       (migemo-init)
@@ -261,7 +268,7 @@
       (if (and migemo-after-conv-function
 	       (functionp migemo-after-conv-function))
 	  (funcall migemo-after-conv-function word pattern)
-	(migemo-replace-in-string pattern "\a" migemo-white-space-regexp)))))
+	(migemo-replace-in-string pattern "\a" migemo-white-space-regexp))))))
 
 (defun migemo-pattern-alist-load (file)
   "Load migemo alist file."

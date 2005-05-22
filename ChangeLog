@@ -1,3 +1,10 @@
+2005-05-22  Satoru Takabayashi  <satoru@namazu.org>
+
+	* migemo.el (migemo-isearch-min-length): New custom variable.
+	(migemo-get-pattern): Return "" if input word is shorter than
+	migemo-isearch-min-length.  Applied a patch by Kenichi Kurihara
+	<kurihara at mi.cs.titech.ac.jp>. 
+
 2005-02-25  Hideyuki SHIRAI  <shirai@meadowy.org>
 
 	* migemo.el.in (migemo-isearch-toggle-migemo): Follow new
