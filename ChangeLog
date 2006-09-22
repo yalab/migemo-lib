@@ -1,3 +1,7 @@
+2006-09-22  Hideyuki SHIRAI  <shirai@meadowy.org>
+
+	* migemo.el.in (migemo-backward): Fix return value, number or nil.
+
 2005-05-22  Satoru Takabayashi  <satoru@namazu.org>
 
 	* migemo.el (migemo-isearch-min-length): New custom variable.

@@ -1,7 +1,7 @@
 ;; -*- mode: Emacs-Lisp; coding: euc-jp-unix -*-
 ;;; migemo.el - Japanese incremental search trough dynamic pattern expansion
 
-;; $Id: migemo.el.in,v 1.7 2005/05/22 08:39:02 satoru-t Exp $
+;; $Id: migemo.el.in,v 1.8 2006/09/22 08:43:33 shirai Exp $
 ;; Copyright (C) Satoru Takabayashi
 
 ;; Author: Satoru Takabayashi <satoru-t@is.aist-nara.ac.jp>
@@ -395,10 +395,12 @@ into the migemo's regexp pattern."
       (search-backward-regexp migemo-search-pattern bound noerror count)
     (or (and (not (eq this-command 'isearch-repeat-backward))
 	     (not (get-char-property (point) 'invisible (current-buffer)))
-	     (or (looking-at migemo-search-pattern)
+	     (or (and (looking-at migemo-search-pattern)
+		      (match-beginning 0))
 		 (and (not (eq (point) (point-min)))
 		      (progn (forward-char -1)
-			     (looking-at migemo-search-pattern)))))
+			     (and (looking-at migemo-search-pattern)
+				  (match-beginning 0))))))
 	(search-backward-regexp migemo-search-pattern bound noerror count))))
 
 ;; experimental
