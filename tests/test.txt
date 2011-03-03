@@ -1,77 +1,77 @@
 ;; kap
-À¤³¦¤È´Á»ú¤Ë¤Ä¤¤¤Æ¤Î³èÈ¯¤ÊµÄÏÀ
+ä¸–ç•Œã¨æ¼¢å­—ã«ã¤ã„ã¦ã®æ´»ç™ºãªè­°è«–
 
 ;; kana
-¤Î¤É¤« ´Á»ú ¥«¥Ê¥Ö¥ó
+ã®ã©ã‹ æ¼¢å­— ã‚«ãƒŠãƒ–ãƒ³
 
 ;; 3a:
-¤³¤¦¤¤¤¦Ê¸»ú¤Ï·ù¤À £±£²£³£á¡§£â£ã
+ã“ã†ã„ã†æ–‡å­—ã¯å«Œã  ï¼‘ï¼’ï¼“ï½ï¼šï½‚ï½ƒ
 
 ;; softw
-ÁÄÉã¤È¥½¥Õ¥È¥¦¥§¥¢
+ç¥–çˆ¶ã¨ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢
 
 ;; kens
-  ¹Ô¤ò¤Ş¤¿¤°¸¢Íø¤È¸¡
-  º÷¤ÎÌäÂê
+  è¡Œã‚’ã¾ãŸãæ¨©åˆ©ã¨æ¤œ
+  ç´¢ã®å•é¡Œ
 
-;; ¥«¥¿¥«¥Ê¸ì
-¥Õ¥¡¥¤¥ë     file, fairu
-¥Ç¥£¥ì¥¯¥È¥ê directory, dexirekutori, dyirekutori
-¥É¥­¥å¥á¥ó¥È document, dokyument
-¥½¥Õ¥È¥¦¥§¥¢ software, sofutouwea, sohutouxea
+;; ã‚«ã‚¿ã‚«ãƒŠèª
+ãƒ•ã‚¡ã‚¤ãƒ«     file, fairu
+ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª directory, dexirekutori, dyirekutori
+ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆ document, dokyument
+ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ software, sofutouwea, sohutouxea
 
-;; µ­¹æ
-¦² sigma, siguma
-¦Ë lambda, ramuda
-¦Ğ pi, pai
-¡û maru
+;; è¨˜å·
+Î£ sigma, siguma
+Î» lambda, ramuda
+Ï€ pi, pai
+â—‹ maru
 
-;; chi ÌäÂê
-ÄÀË×     chinbotsu, tinbotu
-º£°ì     imaichi, imaiti
-¤¤¤Ş¤¤¤Á imaichi, imaiti
+;; chi å•é¡Œ
+æ²ˆæ²¡     chinbotsu, tinbotu
+ä»Šä¸€     imaichi, imaiti
+ã„ã¾ã„ã¡ imaichi, imaiti
 
-;; ch ÌäÂê
-¤Á¤§¤ê¡¼ cheri-, tyeri-
-ºÇÃæ     saichuu, saityuu
+;; ch å•é¡Œ
+ã¡ã‡ã‚Šãƒ¼ cheri-, tyeri-
+æœ€ä¸­     saichuu, saityuu
 
-;; ky ÌäÂê
-¶µ¼ø kyouju    ; kixyouju   ¤Ç°ú¤±¤Ê¤¤¤Î¤Ï»ÅÍÍ
-½¡¶µ syuukyou  ; syuukixyou ¤Ç°ú¤±¤Ê¤¤¤Î¤Ï»ÅÍÍ
+;; ky å•é¡Œ
+æ•™æˆ kyouju    ; kixyouju   ã§å¼•ã‘ãªã„ã®ã¯ä»•æ§˜
+å®—æ•™ syuukyou  ; syuukixyou ã§å¼•ã‘ãªã„ã®ã¯ä»•æ§˜
 
-;; ji ÌäÂê
-´Á»ú kanji, kanzi
-»ş»ö jiji, zizi
+;; ji å•é¡Œ
+æ¼¢å­— kanji, kanzi
+æ™‚äº‹ jiji, zizi
 
-;; sh ÌäÂê
-¥·¥å¡¼¥¯¥ê¡¼¥à shu-kuri-mu, syu-kuri-mu, 
-¿®Íê shinrai, sinrai
-°Â¿´ anshin, ansin
-³Æ¼ï kakushu, kakusyu
+;; sh å•é¡Œ
+ã‚·ãƒ¥ãƒ¼ã‚¯ãƒªãƒ¼ãƒ  shu-kuri-mu, syu-kuri-mu, 
+ä¿¡é ¼ shinrai, sinrai
+å®‰å¿ƒ anshin, ansin
+å„ç¨® kakushu, kakusyu
 
-;; nn ÌäÂê
-È¿±ş hannnou, han'nou
-ÈÏ°Ï hanni, han'i
-ÈÌ¼ã hannnya, han'nya
+;; nn å•é¡Œ
+åå¿œ hannnou, han'nou
+ç¯„å›² hanni, han'i
+èˆ¬è‹¥ hannnya, han'nya
 
-;; ssyÌäÂê
-¥¨¥Ã¥·¥ã¡¼ essya- essha-
+;; ssyå•é¡Œ
+ã‚¨ãƒƒã‚·ãƒ£ãƒ¼ essya- essha-
 
-;; ³Æ¼ïÊ¸»ú
-0123 abcd ABCD ¤Ò¤é¤¬¤Ê ¥«¥¿¥«¥Ê ´Á»ú 
+;; å„ç¨®æ–‡å­—
+0123 abcd ABCD ã²ã‚‰ãŒãª ã‚«ã‚¿ã‚«ãƒŠ æ¼¢å­— 
 !"[#\$]%^&_':`(;)<*=+>,?-@./{|}~
 
-;; Á´³ÑÊ¸»ú
-£°£±£²£³¡¡£á£â£ã£ä¡¡£Á£Â£Ã£Ä
-¡ª¡É¡Î¡ô¡À¡ğ¡Ï¡ó¡°¡õ¡²¡Ç¡§¡Æ¡Ê¡¨¡Ë¡ã¡ö¡á¡Ü¡ä¡¤¡©¡İ¡÷¡¥¡¿¡Ğ¡Ã¡Ñ¡±
+;; å…¨è§’æ–‡å­—
+ï¼ï¼‘ï¼’ï¼“ã€€ï½ï½‚ï½ƒï½„ã€€ï¼¡ï¼¢ï¼£ï¼¤
+ï¼â€ï¼»ï¼ƒï¼¼ï¼„ï¼½ï¼…ï¼¾ï¼†ï¼¿â€™ï¼šâ€˜ï¼ˆï¼›ï¼‰ï¼œï¼Šï¼ï¼‹ï¼ï¼Œï¼Ÿâˆ’ï¼ ï¼ï¼ï½›ï½œï½â€¾
 
-;; µ­¹æ¤ÎÆ±°ì»ë
-;; . ¡¥¡£
-;; , ¡¤¡¢
-;; * ¡ß¢¨
-;; / ¡à
-;; [ ¡Ö¡Ø
-;; ]  ¡×¡Ù
-;; \ ¡À¡ï
-;; " ¡È¡É
-;; # ¡ô¢ô
+;; è¨˜å·ã®åŒä¸€è¦–
+;; . ï¼ã€‚
+;; , ï¼Œã€
+;; * Ã—â€»
+;; / Ã·
+;; [ ã€Œã€
+;; ]  ã€ã€
+;; \ ï¼¼Â¥
+;; " â€œâ€
+;; # ï¼ƒâ™¯

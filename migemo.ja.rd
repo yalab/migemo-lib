@@ -1,16 +1,16 @@
 =begin
-= Ruby/Migemo: ¥í¡¼¥Þ»ú¤Î¤Þ¤ÞÆüËÜ¸ì¤ò¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¸¡º÷¤¹¤ë RubyÍÑ¤Î¥é¥¤¥Ö¥é¥ê
-Ruby/Migemo ¤Ï¥í¡¼¥Þ»ú¤Î¤Þ¤ÞÆüËÜ¸ì¤ò¥¤¥ó¥¯¥ê¥á¥ó¥¿¥ë¸¡º÷¤¹¤ë
-¤¿¤á¤Î¥é¥¤¥Ö¥é¥ê¤Ç¤¹¡£
+= Ruby/Migemo: ãƒ­ãƒ¼ãƒžå­—ã®ã¾ã¾æ—¥æœ¬èªžã‚’ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«æ¤œç´¢ã™ã‚‹ Rubyç”¨ã®ãƒ©ã‚¤ãƒ–ãƒ©ãƒª
+Ruby/Migemo ã¯ãƒ­ãƒ¼ãƒžå­—ã®ã¾ã¾æ—¥æœ¬èªžã‚’ã‚¤ãƒ³ã‚¯ãƒªãƒ¡ãƒ³ã‚¿ãƒ«æ¤œç´¢ã™ã‚‹
+ãŸã‚ã®ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã§ã™ã€‚
 
-ºÇ¿·ÈÇ¤Ï ((<URL:http://migemo.namazu.org/>)) ¤«¤éÆþ¼ê²ÄÇ½¤Ç
-¤¹¡£
+æœ€æ–°ç‰ˆã¯ ((<URL:http://migemo.namazu.org/>)) ã‹ã‚‰å…¥æ‰‹å¯èƒ½ã§
+ã™ã€‚
 
-== Ê¸»ú¥³¡¼¥É
+== æ–‡å­—ã‚³ãƒ¼ãƒ‰
 
-Ruby ¤ÎÊ¸»ú¥³¡¼¥É¤ò EUC-JP ¤ËÀßÄê¤·¤Þ¤¹¡£ $KCODE="e"
+Ruby ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’ EUC-JP ã«è¨­å®šã—ã¾ã™ã€‚ $KCODE="e"
 
-=== »ÈÍÑÎã
+=== ä½¿ç”¨ä¾‹
 
   % cat sample.rb
   $KCODE="e"
@@ -33,42 +33,42 @@ Ruby ¤ÎÊ¸»ú¥³¡¼¥É¤ò EUC-JP ¤ËÀßÄê¤·¤Þ¤¹¡£ $KCODE="e"
 == API
 
 --- MigemoStaticDict#new(filename)
-    ÀÅÅª¤Ê¼­½ñ¤Î¥ª¥Ö¥¸¥§¥¯¥È¤òÀ¸À®¤¹¤ë
+    é™çš„ãªè¾žæ›¸ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã™ã‚‹
 
 --- MigemoDictCache#new(filename)
-    ÀÅÅª¤Ê¼­½ñ¤Î¥­¥ã¥Ã¥·¥å¤Î¥ª¥Ö¥¸¥§¥¯¥È¤òÀ¸À®¤¹¤ë
+    é™çš„ãªè¾žæ›¸ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã™ã‚‹
 
 --- MigemoUserDict#new(filename)
-    ¥æ¡¼¥¶¼­½ñ¤Î¥ª¥Ö¥¸¥§¥¯¥È¤òÀ¸À®¤¹¤ë
+    ãƒ¦ãƒ¼ã‚¶è¾žæ›¸ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã™ã‚‹
 
 --- MigemoRegexDict#new(filename)
-    Àµµ¬É½¸½¼­½ñ¤Î¥ª¥Ö¥¸¥§¥¯¥È¤òÀ¸À®¤¹¤ë
+    æ­£è¦è¡¨ç¾è¾žæ›¸ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã™ã‚‹
 
 --- Migemo#new(dict, pattern)
-    Migemo¥ª¥Ö¥¸¥§¥¯¥È¤òÀ¸À®¤¹¤ë¡£dict ¤Ë¤Ï
-    MigemoStaticDict ¥ª¥Ö¥¸¥§¥¯¥È¤ò¡¢pattern ¤Ë¤Ï¸¡º÷¥Ñ¥¿¡¼
-    ¥ó¤òÍ¿¤¨¤ë
+    Migemoã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã™ã‚‹ã€‚dict ã«ã¯
+    MigemoStaticDict ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ã€pattern ã«ã¯æ¤œç´¢ãƒ‘ã‚¿ãƒ¼
+    ãƒ³ã‚’ä¸Žãˆã‚‹
 
 --- Migemo#regex
-    ¸¡º÷¥Ñ¥¿¡¼¥ó¤òÅ¸³«¤·¤¿Àµµ¬É½¸½¤ÎÊ¸»úÎó¤òÊÖ¤¹¡£
+    æ¤œç´¢ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’å±•é–‹ã—ãŸæ­£è¦è¡¨ç¾ã®æ–‡å­—åˆ—ã‚’è¿”ã™ã€‚
 
 --- Migemo#type
-    Àµµ¬É½¸½¤Î¼ïÎà (emacs, ruby, perl) ¤òÀßÄê¤¹¤ë accessor¡£[ruby]
+    æ­£è¦è¡¨ç¾ã®ç¨®é¡ž (emacs, ruby, perl) ã‚’è¨­å®šã™ã‚‹ accessorã€‚[ruby]
 
 --- Migemo#dict_cache
-    ÀÅÅª¼­½ñ¤Î¥­¥ã¥Ã¥·¥å¤òÀßÄê¤¹¤ë accessor¡£
+    é™çš„è¾žæ›¸ã®ã‚­ãƒ£ãƒƒã‚·ãƒ¥ã‚’è¨­å®šã™ã‚‹ accessorã€‚
 
 --- Migemo#usr_dict
-    ¥æ¡¼¥¶¼­½ñ¤Î¥ª¥Ö¥¸¥§¥¯¥È¤òÀßÄê¤¹¤ë accessor¡£
+    ãƒ¦ãƒ¼ã‚¶è¾žæ›¸ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¨­å®šã™ã‚‹ accessorã€‚
 
 --- Migemo#regex_dict
-    Àµµ¬É½¸½¼­½ñ¤Î¥ª¥Ö¥¸¥§¥¯¥È¤òÀßÄê¤¹¤ë accessor¡£
+    æ­£è¦è¡¨ç¾è¾žæ›¸ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¨­å®šã™ã‚‹ accessorã€‚
 
 --- Migemo#insertion
-    1Ê¸»ú¤´¤È¤Ë¶´¤àÊ¸»úÎó¤òÀßÄê¤¹¤ë accessor¡£
+    1æ–‡å­—ã”ã¨ã«æŒŸã‚€æ–‡å­—åˆ—ã‚’è¨­å®šã™ã‚‹ accessorã€‚
 
 --- Migemo#optimization
-    Àµµ¬É½¸½¤Î¥³¥ó¥Ñ¥¯¥È²½¤Î¥ì¥Ù¥ë (0-3) ¤òÀßÄê¤¹¤ë accessor¡£[3]
+    æ­£è¦è¡¨ç¾ã®ã‚³ãƒ³ãƒ‘ã‚¯ãƒˆåŒ–ã®ãƒ¬ãƒ™ãƒ« (0-3) ã‚’è¨­å®šã™ã‚‹ accessorã€‚[3]
 
 satoru@namazu.org
 =end

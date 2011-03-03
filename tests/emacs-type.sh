@@ -5,7 +5,7 @@
 #
 echo mot| ruby -I.. ../migemo -temacs -n -O3 test-dict > tmp.out
 cat <<'EOF' > tmp.right
-mot\|£í£ï£ô\|¤â[¤¿¤Á¤Ã¤Ä¤Æ¤È]\|¥â\([¥¿¥Á¥Ã¥Ä¥Æ¥È]\|¡¼\(¥·¥ç¥ó\|¥¿¡¼\)\|¥¹¥é\)
+mot\|ï½ï½ï½”\|ã‚‚[ãŸã¡ã£ã¤ã¦ã¨]\|ãƒ¢\([ã‚¿ãƒãƒƒãƒ„ãƒ†ãƒˆ]\|ãƒ¼\(ã‚·ãƒ§ãƒ³\|ã‚¿ãƒ¼\)\|ã‚¹ãƒ©\)
 EOF
 cmp tmp.right tmp.out || exit 1
 

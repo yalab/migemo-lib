@@ -17,8 +17,8 @@
 $KCODE= "e"
 require 'romkan'
 
-HIRAGANA = "[§°-§Û°º°¡]"
-KANJI = "[∞°-Ù§]"
+HIRAGANA = "[„ÅÅ-„Çì„Éº„Äú]"
+KANJI = "[‰∫ú-Áë§]"
 
 puts ";;"
 puts ";; This is Migemo's dictionary generated from SKK's."

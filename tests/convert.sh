@@ -4,10 +4,10 @@ cat > tmp.convert.input <<EOF
 ;;
 ;; This is a comment line.
 ;;
-¤ê¤«¤¤ /Íý²ò/
-¤ê¤«¤¤s /Íý²ò/
-motion /¥â¡¼¥·¥ç¥ó/
-¤ê¤¯¤È¤¯ /Ï»ÆÁ;¿Í¤¬¼é¤ë¤Ù¤­Ï»¤Ä¤ÎÆÁ¡£¡Ö¤í¤¯¤È¤¯¡×¤È¤â/
+ã‚Šã‹ã„ /ç†è§£/
+ã‚Šã‹ã„s /ç†è§£/
+motion /ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³/
+ã‚Šãã¨ã /å…­å¾³;äººãŒå®ˆã‚‹ã¹ãå…­ã¤ã®å¾³ã€‚ã€Œã‚ãã¨ãã€ã¨ã‚‚/
 EOF
 
 cat > tmp.convert.output <<EOF
@@ -17,9 +17,9 @@ cat > tmp.convert.output <<EOF
 ;;
 ;; This is a comment line.
 ;;
-motion	¥â¡¼¥·¥ç¥ó
-¤ê¤«¤¤	Íý²ò
-¤ê¤¯¤È¤¯	Ï»ÆÁ
+motion	ãƒ¢ãƒ¼ã‚·ãƒ§ãƒ³
+ã‚Šã‹ã„	ç†è§£
+ã‚Šãã¨ã	å…­å¾³
 EOF
 
 cat tmp.convert.input | ruby ../migemo-convert.rb > tmp.convert.tmp

@@ -8,19 +8,19 @@ export REGEXDICT=../regex-dict.sample
 
 echo "mot" | ruby -I.. ../migemo -u $USERDICT -n -O3 test-dict > tmp.out
 cat <<'EOF' > tmp.right
-mot|£í£ï£ô|¤â[¤¿¤Á¤Ã¤Ä¤Æ¤È]|¥â(?:[¥¿¥Á¥Ã¥Ä¥Æ¥È]|¡¼(?:¥·¥ç¥ó|¥¿¡¼)|¥¹¥é)|Message Of The Day
+mot|ï½ï½ï½”|ã‚‚[ãŸã¡ã£ã¤ã¦ã¨]|ãƒ¢(?:[ã‚¿ãƒãƒƒãƒ„ãƒ†ãƒˆ]|ãƒ¼(?:ã‚·ãƒ§ãƒ³|ã‚¿ãƒ¼)|ã‚¹ãƒ©)|Message Of The Day
 EOF
 cmp tmp.right tmp.out || exit 1
 
 echo "c" | ruby -I.. ../migemo -u $USERDICT -n -O3 test-dict > tmp.out
 cat <<'EOF' > tmp.right
-[c£ã¤Á¤Ã¥Á¥Ã]|Sony CSL|¥½¥Ë¡¼(?:CSL|¥³¥ó¥Ô¥å¡¼¥¿¥µ¥¤¥¨¥ó¥¹¸¦µæ½ê)
+[cï½ƒã¡ã£ãƒãƒƒ]|Sony CSL|ã‚½ãƒ‹ãƒ¼(?:CSL|ã‚³ãƒ³ãƒ”ãƒ¥ãƒ¼ã‚¿ã‚µã‚¤ã‚¨ãƒ³ã‚¹ç ”ç©¶æ‰€)
 EOF
 cmp tmp.right tmp.out || exit 1
 
 echo "nais" | ruby -I.. ../migemo -u $USERDICT -n -O3 test-dict > tmp.out
 cat <<'EOF' > tmp.right
-nais|£î£á£é£ó|¤Ê¤¤[¤µ¤·¤¹¤»¤½¤Ã]|¥Ê¥¤[¥µ¥·¥¹¥»¥½¥Ã]|ÆàÎÉÀèÃ¼(?:Âç|²Ê³Øµ»½ÑÂç³Ø±¡Âç³Ø)
+nais|ï½ï½ï½‰ï½“|ãªã„[ã•ã—ã™ã›ãã£]|ãƒŠã‚¤[ã‚µã‚·ã‚¹ã‚»ã‚½ãƒƒ]|å¥ˆè‰¯å…ˆç«¯(?:å¤§|ç§‘å­¦æŠ€è¡“å¤§å­¦é™¢å¤§å­¦)
 EOF
 cmp tmp.right tmp.out || exit 1
 

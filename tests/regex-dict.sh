@@ -8,19 +8,19 @@ export REGEXDICT=../regex-dict.sample
 
 echo "m" | ruby -I.. ../migemo -r $REGEXDICT -n -O3 test-dict > tmp.out
 cat <<'EOF' > tmp.right
-[m£í¤Ã¤Ş¤ß¤à¤á¤â¥Ã¥Ş¥ß¥à¥á¥â]|\([-0-9a-zA-Z_.]+@[-0-9a-zA-Z_.]+\)
+[mï½ã£ã¾ã¿ã‚€ã‚ã‚‚ãƒƒãƒãƒŸãƒ ãƒ¡ãƒ¢]|\([-0-9a-zA-Z_.]+@[-0-9a-zA-Z_.]+\)
 EOF
 cmp tmp.right tmp.out || exit 1
 
 echo "ur" | ruby -I.. ../migemo -r $REGEXDICT -n -O3 test-dict > tmp.out
 cat <<'EOF' > tmp.right
-ur|£õ£ò|¤¦[¤Ã¤é¤ê¤ë¤ì¤í]|¥¦[¥Ã¥é¥ê¥ë¥ì¥í]|\(\(http\|https\|ftp\|afs\|wais\|telnet\|ldap\|gopher\|news\|nntp\|rsync\|mailto\)://[-_.!~*'()a-zA-Z0-9;/?:@&=+$,%#]+\)
+ur|ï½•ï½’|ã†[ã£ã‚‰ã‚Šã‚‹ã‚Œã‚]|ã‚¦[ãƒƒãƒ©ãƒªãƒ«ãƒ¬ãƒ­]|\(\(http\|https\|ftp\|afs\|wais\|telnet\|ldap\|gopher\|news\|nntp\|rsync\|mailto\)://[-_.!~*'()a-zA-Z0-9;/?:@&=+$,%#]+\)
 EOF
 cmp tmp.right tmp.out || exit 1
 
 echo "m" | ruby -I.. ../migemo -u $USERDICT -r $REGEXDICT -n -O3 test-dict > tmp.out
 cat <<'EOF' > tmp.right
-[m£í¤Ã¤Ş¤ß¤à¤á¤â¥Ã¥Ş¥ß¥à¥á¥â]|Message Of The Day|\([-0-9a-zA-Z_.]+@[-0-9a-zA-Z_.]+\)
+[mï½ã£ã¾ã¿ã‚€ã‚ã‚‚ãƒƒãƒãƒŸãƒ ãƒ¡ãƒ¢]|Message Of The Day|\([-0-9a-zA-Z_.]+@[-0-9a-zA-Z_.]+\)
 EOF
 cmp tmp.right tmp.out || exit 1
 

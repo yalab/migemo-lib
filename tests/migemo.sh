@@ -11,43 +11,43 @@ cmp tmp.right tmp.out || exit 1
 
 echo "k" | ruby -I.. ../migemo -n -O3 test-dict > tmp.out
 cat <<'EOF' > tmp.right
-[k£ë¤«¤­¤¯¤±¤³¤Ã¥«¥­¥¯¥±¥³¥Ãµ¡µ¢µ¤]
+[kï½‹ã‹ããã‘ã“ã£ã‚«ã‚­ã‚¯ã‚±ã‚³ãƒƒæ©Ÿå¸°æ°—]
 EOF
 cmp tmp.right tmp.out || exit 1
 
 echo ki| ruby -I.. ../migemo -n -O0 test-dict > tmp.out
 cat <<'EOF' > tmp.right
-ki|£ë£é|¤­|¥­|µ¤|µ¡|µ¢|µ¡Ç½|µ¢Ç¼|µ¢ÇÀ|µ¡Ç½¼çµÁ|µ¡Ç½Åª|µ¢Ç¼Åª
+ki|ï½‹ï½‰|ã|ã‚­|æ°—|æ©Ÿ|å¸°|æ©Ÿèƒ½|å¸°ç´|å¸°è¾²|æ©Ÿèƒ½ä¸»ç¾©|æ©Ÿèƒ½çš„|å¸°ç´çš„
 EOF
 cmp tmp.right tmp.out || exit 1
 
 echo ki| ruby -I.. ../migemo -n -O1 test-dict > tmp.out
 cat <<'EOF' > tmp.right
-ki|£ë£é|¤­|¥­|µ¡|µ¢|µ¤
+ki|ï½‹ï½‰|ã|ã‚­|æ©Ÿ|å¸°|æ°—
 EOF
 cmp tmp.right tmp.out || exit 1
 
 echo ki| ruby -I.. ../migemo -n -O3 test-dict > tmp.out
 cat <<'EOF' > tmp.right
-[¤­¥­µ¡µ¢µ¤]|ki|£ë£é
+[ãã‚­æ©Ÿå¸°æ°—]|ki|ï½‹ï½‰
 EOF
 cmp tmp.right tmp.out || exit 1
 
 echo kin| ruby -I.. ../migemo -n -O3 test-dict > tmp.out
 cat <<'EOF' > tmp.right
-kin|£ë£é£î|¤­[¤Ã¤Ê¤Ë¤Ì¤Í¤Î¤ó]|¥­[¥Ã¥Ê¥Ë¥Ì¥Í¥Î¥ó]|µ¡Ç½|µ¢[Ç¼ÇÀ]
+kin|ï½‹ï½‰ï½|ã[ã£ãªã«ã¬ã­ã®ã‚“]|ã‚­[ãƒƒãƒŠãƒ‹ãƒŒãƒãƒãƒ³]|æ©Ÿèƒ½|å¸°[ç´è¾²]
 EOF
 cmp tmp.right tmp.out || exit 1
 
 echo mot| ruby -I.. ../migemo -n -O2 test-dict > tmp.out
 cat <<'EOF' > tmp.right
-mot|£í£ï£ô|¤â(?:¤¿|¤Á|¤Ã|¤Ä|¤Æ|¤È)|¥â(?:¡¼(?:¥·¥ç¥ó|¥¿¡¼)|¥¹¥é|¥¿|¥Á|¥Ã|¥Ä|¥Æ|¥È)
+mot|ï½ï½ï½”|ã‚‚(?:ãŸ|ã¡|ã£|ã¤|ã¦|ã¨)|ãƒ¢(?:ãƒ¼(?:ã‚·ãƒ§ãƒ³|ã‚¿ãƒ¼)|ã‚¹ãƒ©|ã‚¿|ãƒ|ãƒƒ|ãƒ„|ãƒ†|ãƒˆ)
 EOF
 cmp tmp.right tmp.out || exit 1
 
 echo mot| ruby -I.. ../migemo -n -O3 test-dict > tmp.out
 cat <<'EOF' > tmp.right
-mot|£í£ï£ô|¤â[¤¿¤Á¤Ã¤Ä¤Æ¤È]|¥â(?:[¥¿¥Á¥Ã¥Ä¥Æ¥È]|¡¼(?:¥·¥ç¥ó|¥¿¡¼)|¥¹¥é)
+mot|ï½ï½ï½”|ã‚‚[ãŸã¡ã£ã¤ã¦ã¨]|ãƒ¢(?:[ã‚¿ãƒãƒƒãƒ„ãƒ†ãƒˆ]|ãƒ¼(?:ã‚·ãƒ§ãƒ³|ã‚¿ãƒ¼)|ã‚¹ãƒ©)
 EOF
 cmp tmp.right tmp.out || exit 1
 
