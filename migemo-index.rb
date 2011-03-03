@@ -13,6 +13,7 @@
 #
 offset = 0
 while line = gets
+  line.force_encoding("BINARY")
   unless line =~ /^;/
     print [offset].pack("N")
   end

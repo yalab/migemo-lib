@@ -1,1 +1,4 @@
 tests/tmp.syntax
+tests/test-dict.idx
+tests/tmp.out1
+tests/tmp.out2

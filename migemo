@@ -11,7 +11,7 @@
 # the GNU General Public License version 2.
 #
 
-require 'migemo'
+load File.expand_path(File.dirname(__FILE__)) + '/migemo.rb.in'
 require 'getoptlong'
 require 'thread'
 

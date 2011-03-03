@@ -12,7 +12,6 @@
 require 'migemo-dict'
 require 'migemo-regex'
 require 'romkan'
-require 'jcode'
 include MigemoRegex
 
 class String
