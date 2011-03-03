@@ -6,14 +6,9 @@ Ruby/Migemo はローマ字のまま日本語をインクリメンタル検索�
 最新版は ((<URL:http://migemo.namazu.org/>)) から入手可能で
 す。
 
-== 文字コード
-
-Ruby の文字コードを EUC-JP に設定します。 $KCODE="e"
-
 === 使用例
 
   % cat sample.rb
-  $KCODE="e"
   require 'migemo'
 
   dict = MigemoStaticDict.new("migemo-dict")

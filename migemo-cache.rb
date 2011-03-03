@@ -1,5 +1,4 @@
 require 'migemo'
-$KCODE="e"
 raise if ARGV[0] == nil
 dict = ARGV[0]
 static_dict = MigemoStaticDict.new(dict)

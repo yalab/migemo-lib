@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #
 # Ruby/Migemo - a library for Japanese incremental search.
 #
@@ -7,14 +8,10 @@
 #
 # You can redistribute it and/or modify it under the terms of 
 # the GNU General Public License version 2.
-#
-# NOTE: Ruby/Migemo can work only with EUC_JP encoding. ($KCODE="e")
-#
 
 #
 # Convert a SKK's dictionary into Migemo's.
 #
-$KCODE= "e"
 require 'romkan'
 
 HIRAGANA = "[ぁ-んー〜]"

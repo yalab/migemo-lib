@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #
 # Ruby/Migemo - a library for Japanese incremental search.
 #
@@ -7,9 +8,6 @@
 #
 # You can redistribute it and/or modify it under the terms of 
 # the GNU General Public License version 2.
-#
-# NOTE: Ruby/Migemo can work only with EUC_JP encoding. ($KCODE="e")
-#
 
 module MigemoRegex
   class RegexAlternation < Array
@@ -50,8 +48,8 @@ module MigemoRegex
     attr_reader :regex
 
     private
-    # ["$B1?(B", "$B1?F0(B", "$B1?E>(B", "$BF|K\(B", "$BF|K\8l(B"] => ["$B0B(B" "$B1?(B" "$BF|K\(B"]
-    # ($B1?(B|$B1?F0(B|$B1?E>(B|$BF|K\(B|$BF|K\8l(B) => ($B0B(B|$B1?(B|$BF|K\(B)
+    # ["運", "運動", "運転", "日本", "日本語"] => ["安" "運" "日本"]
+    # (運|運動|運転|日本|日本語) => (安|運|日本)
     def optimize1 (regex)
       prefixpat = nil
       regex.sort.select do |word|
@@ -64,8 +62,8 @@ module MigemoRegex
       end
     end
 
-    # ($B$"$"$"(B|$B$"$"$$(B|$B$"$"$&(B)
-    # => ($B$"(B($B$"(B($B$"(B|$B$$(B|$B$&(B)))
+    # (あああ|ああい|ああう)
+    # => (あ(あ(あ|い|う)))
     def optimize2 (regex)
       tmpregex = regex.sort.clone # I wish Array#cdr were available...
       optimized = RegexAlternation.new
@@ -94,8 +92,8 @@ module MigemoRegex
       return optimized
     end
 
-    # ($B$"(B|$B$$(B|$B$&(B|$B$((B|$B$*(B)
-    # => [$B$"$$$&$($*(B]
+    # (あ|い|う|え|お)
+    # => [あいうえお]
     def optimize3 (regex)
       charclass = RegexCharClass.new
       if regex.instance_of?(RegexAlternation)

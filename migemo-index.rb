@@ -7,9 +7,6 @@
 #
 # You can redistribute it and/or modify it under the terms of 
 # the GNU General Public License version 2.
-#
-# NOTE: Ruby/Migemo can work only with EUC_JP encoding. ($KCODE="e")
-#
 
 #
 # Index Migemo's dictionary.

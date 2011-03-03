@@ -1,4 +1,5 @@
 #! /usr/bin/env ruby
+# -*- coding: utf-8 -*-
 #
 # migemo - a tool for Japanese incremental search.
 #
@@ -9,8 +10,6 @@
 # You can redistribute it and/or modify it under the terms of 
 # the GNU General Public License version 2.
 #
-
-$KCODE = "e"
 
 require 'migemo'
 require 'getoptlong'
