@@ -6,13 +6,13 @@
 
 echo sym | ruby -I.. ../migemo  --nocache test-dict > tmp.out
 cat <<'EOF' > tmp.right
-[]$%@\\-]|sym
+[]$%@\\-]|sym|ｓｙｍ
 EOF
 cmp tmp.right tmp.out || exit 1
 
 echo sym | ruby -I.. ../migemo -temacs  --nocache test-dict > tmp.out
 cat <<'EOF' > tmp.right
-[]$%@\-]\|sym
+[]$%@\-]\|sym\|ｓｙｍ
 EOF
 cmp tmp.right tmp.out || exit 1
 
