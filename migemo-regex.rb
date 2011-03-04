@@ -199,10 +199,8 @@ module MigemoRegex
       regex.map {|x| render0(x) }.join(@insertion)
     end
 
-    # We don't use Regexp.quote because the following regex
-    # is more general (not ruby-specific) and safe to use.
     def escape_string (string)
-      string.gsub(/([^ \w\W])/, '\\\\\\1')
+      Regexp.quote(string)
     end
 
     def escape_charclass (string)
