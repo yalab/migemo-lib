@@ -12,8 +12,6 @@
 
 require File.dirname(File.expand_path(__FILE__)) + '/../lib/migemo'
 require 'getoptlong'
-require 'kconv'
-include Kconv
 
 def print_usage
   print "\
@@ -85,14 +83,14 @@ def main
   migemo.dict_cache = $dict_cache if $dict_cache
   migemo.user_dict = $user_dict if $user_dict
   migemo.regex_dict = $regex_dict if $regex_dict
-  regex = Regexp.new(migemo.regex)
-
+  regex_line = migemo.regex
+  regex_line.force_encoding("UTF-8")
+  regex = Regexp.new(regex_line)
   files.each do |file|
     File.new(file).each do |line|
-      line = toeuc(line)
       if regex =~ line
-	print file + ":" if files.length > 1
-	puts line
+        print file + ":" if files.length > 1
+        puts line
       end
     end
   end
