@@ -52,7 +52,8 @@ module MigemoRegex
     # (運|運動|運転|日本|日本語) => (安|運|日本)
     def optimize1 (regex)
       prefixpat = nil
-      regex.sort.select do |word|
+      sorted = (defined?(Encoding)) ? regex.sort_by{|s| s.encode("EUC-JP") } : regex.sort
+      sorted.select do |word|
 	if prefixpat && prefixpat.match(word) then
 	  false # excluded
 	else

@@ -1,6 +1,3 @@
 tests/tmp.syntax
 tests/test-dict.idx
-tests/tmp.out1
-tests/tmp.out2
-tests/tmp.right
-tests/tmp.out
+tests/tmp.*
