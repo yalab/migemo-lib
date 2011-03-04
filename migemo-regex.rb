@@ -65,7 +65,7 @@ module MigemoRegex
     # (あああ|ああい|ああう)
     # => (あ(あ(あ|い|う)))
     def optimize2 (regex)
-      tmpregex = regex.sort.clone # I wish Array#cdr were available...
+      tmpregex = (defined?(Encoding)) ? regex.sort_by{|s| s.encode("EUC-JP") }.clone : regex.sort.clone # I wish Array#cdr were available...
       optimized = RegexAlternation.new
       until tmpregex.empty?
 	head = tmpregex.shift
@@ -201,7 +201,7 @@ module MigemoRegex
     # We don't use Regexp.quote because the following regex
     # is more general (not ruby-specific) and safe to use.
     def escape_string (string)
-      string.gsub(/([^ \w])/, '\\\\\\1')
+      string.gsub(/([^ \w\W])/, '\\\\\\1')
     end
 
     def escape_charclass (string)
