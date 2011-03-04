@@ -9,8 +9,10 @@
 # You can redistribute it and/or modify it under the terms of 
 # the GNU General Public License version 2.
 
+$LOAD_PATH << File.dirname(File.expand_path(__FILE__))
 require 'migemo-dict'
 require 'migemo-regex'
+require 'version'
 require 'romkan'
 include MigemoRegex
 
@@ -71,7 +73,6 @@ class String
 end
 
 class Migemo
-  VERSION = '@VERSION@'
   def initialize (dict, pattern)
     @type = "ruby"
     @pattern = pattern

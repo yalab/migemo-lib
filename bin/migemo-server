@@ -10,7 +10,7 @@
 # the GNU General Public License version 2.
 #
 
-require 'migemo'
+require File.dirname(File.expand_path(__FILE__)) + '/../lib/migemo'
 require 'cgi'
 require 'socket'
 require 'getoptlong'
@@ -72,7 +72,7 @@ class MigemoServer
   end
 
   def print_form (socket)
-    print_http (socket, 
+    print_http(socket, 
 		['HTTP/1.0 200', 
 		  'Content-type: text/html'], 
 		<<"EOF")
