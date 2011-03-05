@@ -12,13 +12,13 @@ class UserDictTest < Test::Unit::TestCase
   def test_mot
     migemo = Migemo.new(@dict, 'mot')
     migemo.user_dict = @user_dict
-    assert_equal 'mot|ｍｏｔ|も[たちっつてと]|モ(?:[タチッツテト]|ー(?:ション|ター)|スラ)|Message\ Of\ The\ Day', migemo.regex
+    assert_equal 'mot|ｍｏｔ|も[たちっつてと]|モ(?:[タチッツテト]|ー(?:ション|ター)|スラ)|Message Of The Day', migemo.regex
   end
 
   def test_c
     migemo = Migemo.new(@dict, 'c')
     migemo.user_dict = @user_dict
-    assert_equal '[cｃちっチッ]|Sony\ CSL|ソニー(?:CSL|コンピュータサイエンス研究所)', migemo.regex
+    assert_equal '[cｃちっチッ]|Sony CSL|ソニー(?:CSL|コンピュータサイエンス研究所)', migemo.regex
   end
 
   def test_nais

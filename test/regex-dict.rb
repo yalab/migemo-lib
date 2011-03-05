@@ -26,6 +26,6 @@ class RegexDictTest < Test::Unit::TestCase
     migemo = Migemo.new(@dict, 'm')
     migemo.regex_dict = @regex_dict
     migemo.user_dict = MigemoUserDict.new(BASE_DIR + '/../data/user-dict.sample')
-    assert_equal '[mｍっまみむめもッマミムメモ]|Message\ Of\ The\ Day|\([-0-9a-zA-Z_.]+@[-0-9a-zA-Z_.]+\)', migemo.regex
+    assert_equal '[mｍっまみむめもッマミムメモ]|Message Of The Day|\([-0-9a-zA-Z_.]+@[-0-9a-zA-Z_.]+\)', migemo.regex
   end
 end
