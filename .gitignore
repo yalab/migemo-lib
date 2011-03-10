@@ -1,3 +1,5 @@
 tests/tmp.syntax
 tests/test-dict.idx
 tests/tmp.*
+data/migemo-dict
+data/SKK-JISYO.L

@@ -40,7 +40,7 @@ class Migemo
           x.sub(/;.*/, "").sub(/^\((\w+)\b.+\)$/, "")
         }.delete_if {|x| x == ""}
         sprintf("%s\t%s", head, words.join("\t"))
-      end.sort.uniq
+      end.compact.sort.uniq
     end
 
     def output(io=nil)
