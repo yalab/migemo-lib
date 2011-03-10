@@ -22,6 +22,6 @@ motion	モーション
 りくとく	六徳
 EOF
 
-cat tmp.convert.input | ruby ../migemo-convert.rb > tmp.convert.tmp
+cat tmp.convert.input | ruby ../bin/migemo-convert.rb > tmp.convert.tmp
 cmp tmp.convert.output tmp.convert.tmp || exit 1
 exit 0

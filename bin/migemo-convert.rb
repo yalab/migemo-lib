@@ -13,34 +13,42 @@
 # Convert a SKK's dictionary into Migemo's.
 #
 require 'romkan'
+module Migemo
+  class Convert
+    HIRAGANA = "[ぁ-んー〜]"
+    KANJI = "[亜-瑤]"
+    HEADER = <<-EOS.gsub(/^ +/, '')
+      ;;
+      ;; This is Migemo's dictionary generated from SKK's.
+      ;;
+    EOS
+    attr_reader :header
+    def initialize(lines)
+      (comments, lines) = lines.partition{|line| line =~ /^;/ }
+      @header = HEADER.split("\n") + comments
+      @body = lines
+    end
 
-HIRAGANA = "[ぁ-んー〜]"
-KANJI = "[亜-瑤]"
+    def transfer
+      dict = [];
+      @body.map do |line|
+        next if /^(#{HIRAGANA}+)[a-z]? (.*)/ !~ line && /^(\w+) (.*)/ !~ line
+        head = $1
+        words = $2.split('/').map {|x|
+          # remove annotations and elisp codes
+          x.sub(/;.*/, "").sub(/^\((\w+)\b.+\)$/, "")
+        }.delete_if {|x| x == ""}
+        sprintf("%s\t%s\n", head, words.join("\t"))
+      end.sort.uniq
+    end
 
-puts ";;"
-puts ";; This is Migemo's dictionary generated from SKK's."
-puts ";;"
-lines = readlines
-while line = lines.shift
-  if /^;/ =~ line
-    puts line
-  else
-    lastline = line
-    break
+    def output(io=nil)
+      io = STDOUT unless io
+      io.puts header
+      io.puts transfer
+    end
   end
 end
-lines.unshift(lastline)
 
-dict = [];
-while line = lines.shift
-  if /^(#{HIRAGANA}+)[a-z]? (.*)/ =~ line || /^(\w+) (.*)/ =~ line 
-    head = $1
-    words = $2.split('/').map {|x| 
-      # remove annotations and elisp codes
-      x.sub(/;.*/, "").sub(/^\((\w+)\b.+\)$/, "")
-    }.delete_if {|x| x == ""}
-    dict.push(sprintf("%s\t%s\n", head, words.join("\t")))
-  end
-end
+Migemo::Convert.new(readlines).output if $0 == __FILE__
 
-dict.sort.uniq.each do |x| print x end
