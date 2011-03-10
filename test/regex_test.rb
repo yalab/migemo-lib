@@ -1,5 +1,4 @@
-require 'test/unit'
-require 'migemo'
+require 'test_helper'
 
 class RegexTest < Test::Unit::TestCase
   def test_compile
@@ -8,9 +7,8 @@ class RegexTest < Test::Unit::TestCase
       lines = f.readlines.map(&:chomp)
       10.times{ patterns << lines.slice!(rand(lines.length)) }
     end
-    @dict = MigemoStaticDict.new(File.dirname(File.expand_path(__FILE__)) + '/test-dict')
     patterns.each do |pattern|
-      migemo = Migemo.new(@dict, pattern)
+      migemo = Migemo.new(migemo_dict, pattern)
       assert Regexp.compile(migemo.regex)
     end
   end
