@@ -13,7 +13,7 @@
 # Convert a SKK's dictionary into Migemo's.
 #
 require 'romkan'
-module Migemo
+class Migemo
   class Convert
     HIRAGANA = "[ぁ-んー〜]"
     KANJI = "[亜-瑤]"
@@ -24,6 +24,7 @@ module Migemo
     EOS
     attr_reader :header
     def initialize(lines)
+      lines = lines.split("\n") if lines.is_a?(String)
       (comments, lines) = lines.partition{|line| line =~ /^;/ }
       @header = HEADER.split("\n") + comments
       @body = lines
@@ -38,7 +39,7 @@ module Migemo
           # remove annotations and elisp codes
           x.sub(/;.*/, "").sub(/^\((\w+)\b.+\)$/, "")
         }.delete_if {|x| x == ""}
-        sprintf("%s\t%s\n", head, words.join("\t"))
+        sprintf("%s\t%s", head, words.join("\t"))
       end.sort.uniq
     end
 

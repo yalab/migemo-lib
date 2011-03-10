@@ -1,6 +1,8 @@
 $LOAD_PATH << File.dirname(File.expand_path(__FILE__)) + '/../lib'
+$LOAD_PATH << File.dirname(File.expand_path(__FILE__)) + '/../bin'
 require 'test/unit'
 require 'migemo'
+require 'migemo-convert'
 
 Test::Unit::TestCase.module_eval do
   def migemo_dict

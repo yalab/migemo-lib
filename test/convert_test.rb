@@ -1,6 +1,9 @@
-#! /bin/sh
+# -*- coding: utf-8 -*-
+require 'test_helper'
 
-cat > tmp.convert.input <<EOF
+class ConvertTest < Test::Unit::TestCase
+  def test_convert
+    input =<<-EOF
 ;;
 ;; This is a comment line.
 ;;
@@ -9,8 +12,7 @@ cat > tmp.convert.input <<EOF
 motion /モーション/
 りくとく /六徳;人が守るべき六つの徳。「ろくとく」とも/
 EOF
-
-cat > tmp.convert.output <<EOF
+    expects =<<-EOF
 ;;
 ;; This is Migemo's dictionary generated from SKK's.
 ;;
@@ -21,7 +23,7 @@ motion	モーション
 りかい	理解
 りくとく	六徳
 EOF
-
-cat tmp.convert.input | ruby ../bin/migemo-convert.rb > tmp.convert.tmp
-cmp tmp.convert.output tmp.convert.tmp || exit 1
-exit 0
+    convert = Migemo::Convert.new(input)
+    assert_equal expects,  (convert.header + convert.transfer).join("\n") + "\n"
+  end
+end
