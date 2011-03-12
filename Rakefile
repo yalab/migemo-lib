@@ -5,8 +5,9 @@ require 'open-uri'
 require 'fileutils'
 ROOT = File.dirname(File.expand_path(__FILE__))
 
-SKK_DICT    = "data/SKK-JISYO.L"
-MIGEMO_DICT = 'data/migemo-dict'
+SKK_DICT     = "data/SKK-JISYO.L"
+MIGEMO_DICT  = 'data/migemo-dict'
+MIGEMO_INDEX = 'data/migemo-dict.idx'
 
 task :default => :test
 task :setup   => MIGEMO_DICT
@@ -38,4 +39,8 @@ file MIGEMO_DICT => SKK_DICT do |t|
   io = File.open("#{ROOT}/#{t.name}", "w")
 
   Migemo::Convert.new(lines).output(io)
+end
+
+file MIGEMO_INDEX => MIGEMO_DICT do |t|
+  Migemo::Index.new(File.open(MIGEMO_DICT)).convert.save(MIGEMO_INDEX)
 end
