@@ -10,11 +10,12 @@ MIGEMO_DICT  = 'data/migemo-dict'
 MIGEMO_INDEX = 'data/migemo-dict.idx'
 
 task :default => :test
-task :setup   => MIGEMO_DICT
-task :test => MIGEMO_DICT
-Rake::TestTask.new do |t|
-  t.libs << "test"
-  t.test_files = FileList['test/*.rb']
+task :setup   => [MIGEMO_DICT, MIGEMO_INDEX]
+task :test => MIGEMO_DICT do
+  Rake::TestTask.new do |t|
+    t.libs << "test"
+    t.test_files = FileList['test/*.rb']
+  end
 end
 
 task :clean do
