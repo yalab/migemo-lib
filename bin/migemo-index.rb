@@ -11,11 +11,32 @@
 #
 # Index Migemo's dictionary.
 #
-offset = 0
-while line = gets
-  line.force_encoding("BINARY")
-  unless line =~ /^;/
-    print [offset].pack("N")
+class Migemo
+  class Index
+    def initialize(lines)
+      @lines = lines.is_a?(IO) ? lines.readlines : lines
+      @index = []
+    end
+
+    def convert
+      offset = 0
+      @lines.each do |line|
+        line.force_encoding("BINARY")
+        unless line =~ /^;/
+          @index <<  [offset].pack("N")
+        end
+        offset += line.length
+      end
+      self
+    end
+    def save(fname)
+      File.open(fname, 'w') do |f|
+        f.write(@index.join)
+      end
+    end
   end
-  offset += line.length
+end
+
+if __FILE__ == $0
+  Migemo::Index.new(File.open(ARGV[0])).convert.save(ARGV[0] + '.idx')
 end
