@@ -114,7 +114,7 @@ class Migemo
       if /^(.*)(.)$/ =~ head && $2.consonant?
         head2 = $1;
         beforelast = $2;
-        if last == $beforelast # special case 2
+        if last == beforelast # special case 2
           cand.push head2 + "っ"
         elsif /^(.*)(.)$/ =~ head2 && beforelast == $2 && last.consonant?
           # special case 5
@@ -173,7 +173,7 @@ class Migemo
     expand_kanas.each do |x| 
       compiler.push(x)
       compiler.push(x.to_katakana)
-      expand_words(@static_dict, x).each do |x| compiler.push(x) end
+      expand_words(@static_dict, x).each do |_x| compiler.push(_x) end
     end
     expand_words(@static_dict, @pattern).each do |x| compiler.push(x) end
     compiler.uniq
@@ -184,7 +184,7 @@ class Migemo
   def lookup_user_dict
     compiler = RegexCompiler.new
     expand_kanas.each do |x| 
-      expand_words(@user_dict, x).each do |x| compiler.push(x) end
+      expand_words(@user_dict, x).each do |_x| compiler.push(_x) end
     end
     expand_words(@user_dict, @pattern).each do |x| compiler.push(x) end
     compiler.uniq
