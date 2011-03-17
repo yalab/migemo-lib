@@ -52,4 +52,3 @@ class Migemo
 end
 
 Migemo::Convert.new(readlines).output if $0 == __FILE__
-

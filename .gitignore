@@ -4,3 +4,4 @@ tests/tmp.*
 data/SKK-JISYO.L
 data/migemo-dict
 data/migemo-dict.idx
+data/migemo-chars

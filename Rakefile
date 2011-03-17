@@ -8,6 +8,7 @@ ROOT = File.dirname(File.expand_path(__FILE__))
 SKK_DICT     = "data/SKK-JISYO.L"
 MIGEMO_DICT  = 'data/migemo-dict'
 MIGEMO_INDEX = 'data/migemo-dict.idx'
+MIGEMO_CHARS = 'data/migemo-chars'
 
 task :default => :test
 task :setup   => [MIGEMO_DICT, MIGEMO_INDEX]
@@ -44,4 +45,8 @@ end
 
 file MIGEMO_INDEX => MIGEMO_DICT do |t|
   Migemo::Index.new(File.open(MIGEMO_DICT)).convert.save(MIGEMO_INDEX)
+end
+
+file MIGEMO_CHARS => MIGEMO_DICT do |t|
+  Migemo::Chars.new(MIGEMO_DICT).generate.save(MIGEMO_CHARS)
 end
