@@ -112,39 +112,39 @@ class Migemo
     return [] if last == nil
     if last.consonant?
       if /^(.*)(.)$/ =~ head && $2.consonant?
-	head2 = $1;
-	beforelast = $2;
-	if last == $beforelast # special case 2
-	  cand.push head2 + "っ"
+        head2 = $1;
+        beforelast = $2;
+        if last == $beforelast # special case 2
+          cand.push head2 + "っ"
         elsif /^(.*)(.)$/ =~ head2 && beforelast == $2 && last.consonant?
           # special case 5
-	  cand += (beforelast + last).expand_consonant.map do |x|
-	    $1 + "っ" + x.to_kana
+          cand += (beforelast + last).expand_consonant.map do |x|
+            $1 + "っ" + x.to_kana
           end
-	else
-	  cand += (beforelast + last).expand_consonant.map do |x|
-	    head2 + x.to_kana
-	  end
-	end
+        else
+          cand += (beforelast + last).expand_consonant.map do |x|
+            head2 + x.to_kana
+          end
+        end
       elsif /^(.*?)(n?)ny$/ =~ @pattern && $2 == "" # special case 6
         head2 = $1
         cand += "ny".expand_consonant.map do |x|
           head2 + x.to_kana
         end
       else
-	deriv = last.expand_consonant
-	deriv.push "xtsu";
-	if last == "c" # special case 3
-	  deriv.push "chi";
-	elsif last == "x" # special case 4
-	  deriv.push "xya", "xyu", "xyo", "xwa"
-	end
-	cand += deriv.map do |x| head + x.to_kana end
+        deriv = last.expand_consonant
+        deriv.push "xtsu";
+        if last == "c" # special case 3
+          deriv.push "chi";
+        elsif last == "x" # special case 4
+          deriv.push "xya", "xyu", "xyo", "xwa"
+        end
+        cand += deriv.map do |x| head + x.to_kana end
       end
     elsif last == "ん" # speacial case 1
       cand.push kana;
       cand += ("n".expand_consonant + ["っ"]).map do |x|
-	head + x.to_kana
+        head + x.to_kana
       end
     else
       cand.push kana
@@ -206,10 +206,10 @@ class Migemo
       return RegexAlternation.new
     end
     result = if @dict_cache
-	       lookup_cache || lookup0
-	     else
-	       lookup0
-	     end
+               lookup_cache || lookup0
+             else
+               lookup0
+             end
     if @user_dict
       lookup_user_dict.each{|x| result.push(x) }
     end

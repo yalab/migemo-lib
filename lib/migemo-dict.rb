@@ -70,8 +70,8 @@ class MigemoStaticDict < MigemoDict
     end
     if range 
       range.each do |i| 
-	key, values = decompose(get_line(@index[i]))
-	yield(MigemoDictItem.new(key, values)) 
+        key, values = decompose(get_line(@index[i]))
+        yield(MigemoDictItem.new(key, values)) 
       end
     end
   end
@@ -90,8 +90,8 @@ class MigemoUserDict < MigemoDict
     end
     if range 
       range.each do |i| 
-	key, values = decompose(@lines[i])
-	yield(MigemoDictItem.new(key, values)) 
+        key, values = decompose(@lines[i])
+        yield(MigemoDictItem.new(key, values)) 
       end
     end
   end

@@ -54,12 +54,12 @@ module MigemoRegex
       prefixpat = nil
       sorted = (defined?(Encoding)) ? regex.sort_by{|s| s.encode("EUC-JP") } : regex.sort
       sorted.select do |word|
-	if prefixpat && prefixpat.match(word) then
-	  false # excluded
-	else
-	  prefixpat = Regexp.new("^" + Regexp.quote(word))
-	  true # included
-	end
+        if prefixpat && prefixpat.match(word) then
+          false # excluded
+        else
+          prefixpat = Regexp.new("^" + Regexp.quote(word))
+          true # included
+        end
       end
     end
 
@@ -69,26 +69,26 @@ module MigemoRegex
       tmpregex = (defined?(Encoding)) ? regex.sort_by{|s| s.encode("EUC-JP") }.clone : regex.sort.clone # I wish Array#cdr were available...
       optimized = RegexAlternation.new
       until tmpregex.empty?
-	head = tmpregex.shift
-	initial = head.first
-	friends = RegexAlternation.new
-	while item = tmpregex.first
-	  if initial == item.first
-	    friends.push(item.rest)
-	    tmpregex.shift
-	  else
-	    break
-	  end
-	end
-	if friends.empty?
-	  optimized.push head
-	else
-	  concat = RegexConcatnation.new
-	  concat.push(initial)
-	  friends.unshift(head.rest) 
-	  concat.push(optimize2(friends))
-	  optimized.push(concat)
-	end
+        head = tmpregex.shift
+        initial = head.first
+        friends = RegexAlternation.new
+        while item = tmpregex.first
+          if initial == item.first
+            friends.push(item.rest)
+            tmpregex.shift
+          else
+            break
+          end
+        end
+        if friends.empty?
+          optimized.push head
+        else
+          concat = RegexConcatnation.new
+          concat.push(initial)
+          friends.unshift(head.rest) 
+          concat.push(optimize2(friends))
+          optimized.push(concat)
+        end
       end
       return optimized
     end
@@ -98,26 +98,26 @@ module MigemoRegex
     def optimize3 (regex)
       charclass = RegexCharClass.new
       if regex.instance_of?(RegexAlternation)
-	regex.delete_if do |x|
-	  if x.instance_of?(String) && x =~ /^.$/ then
-	    charclass.push(x)
-	    true
-	  end
-	end
+        regex.delete_if do |x|
+          if x.instance_of?(String) && x =~ /^.$/ then
+            charclass.push(x)
+            true
+          end
+        end
       end
 
       if charclass.length == 1
-	regex.unshift charclass.first
+        regex.unshift charclass.first
       elsif charclass.length > 1
-	regex.unshift charclass
+        regex.unshift charclass
       end
 
       regex.map do |x|
-	if x.instance_of?(RegexAlternation) || x.instance_of?(RegexConcatnation)
-	  optimize3(x)
-	else
-	  x
-	end
+        if x.instance_of?(RegexAlternation) || x.instance_of?(RegexConcatnation)
+          optimize3(x)
+        else
+          x
+        end
       end
     end
 
@@ -185,13 +185,13 @@ module MigemoRegex
     private
     def render_alternation (regex)
       if regex.length == 0
-	raise
+        raise
       elsif regex.length == 1
-	render0(regex[0])
+        render0(regex[0])
       else
-	@meta.lparen + 
-	  regex.map {|x| render0(x) }.join(@meta.bar) + 
-	  @meta.rparen
+        @meta.lparen + 
+          regex.map {|x| render0(x) }.join(@meta.bar) + 
+          @meta.rparen
       end
     end
 
@@ -211,20 +211,20 @@ module MigemoRegex
 
     def render_charclass (regex)
       if regex.delete("-")
-	regex.push("-")  # move "-" to the end of Array.
+        regex.push("-")  # move "-" to the end of Array.
       end
       if regex.delete("]")
-	regex.unshift("]")  # move "]" to the beginning of Array.
+        regex.unshift("]")  # move "]" to the beginning of Array.
       end
       escape_charclass("[" + regex.join + "]")
     end
 
     def insert (string)
       if @insertion != ""
-	tmp = string.gsub(/(\\.|.)/, "\\1#{@insertion}")
-	tmp = tmp.sub(/#{Regexp.quote(@insertion)}$/, "")
+        tmp = string.gsub(/(\\.|.)/, "\\1#{@insertion}")
+        tmp = tmp.sub(/#{Regexp.quote(@insertion)}$/, "")
       else
-	string
+        string
       end
     end
 
@@ -234,15 +234,15 @@ module MigemoRegex
 
     def render0 (x)
       if x.instance_of?(RegexAlternation)
-	render_alternation(x)
+        render_alternation(x)
       elsif x.instance_of?(RegexConcatnation)
-	render_concatnation(x)
+        render_concatnation(x)
       elsif x.instance_of?(RegexCharClass)
-	render_charclass(x)
+        render_charclass(x)
       elsif x.instance_of?(String)
-	render_string(x)
+        render_string(x)
       else
-	raise "unexpected type: #{x} of #{x.class}"
+        raise "unexpected type: #{x} of #{x.class}"
       end
     end
 
@@ -304,17 +304,17 @@ module MigemoRegex
     def new (type)
       case type
       when nil
-	RegexRubyMetachars.new
+        RegexRubyMetachars.new
       when "emacs"
-	RegexEmacsMetachars.new
+        RegexEmacsMetachars.new
       when "perl"
-	RegexPerlMetachars.new
+        RegexPerlMetachars.new
       when "ruby"
-	RegexRubyMetachars.new
+        RegexRubyMetachars.new
       when "egrep"
-	RegexEgrepMetachars.new
+        RegexEgrepMetachars.new
       else
-	raise "Unknown type: #{type}"
+        raise "Unknown type: #{type}"
       end
     end
     module_function :new
@@ -324,21 +324,19 @@ module MigemoRegex
     def new (regex, type, insertion)
       case type
       when nil
-	RegexRubyRenderer.new(regex, insertion)
+        RegexRubyRenderer.new(regex, insertion)
       when "emacs"
-	RegexEmacsRenderer.new(regex, insertion)
+        RegexEmacsRenderer.new(regex, insertion)
       when "perl"
-	RegexPerlRenderer.new(regex, insertion)
+        RegexPerlRenderer.new(regex, insertion)
       when "ruby"
-	RegexRubyRenderer.new(regex, insertion)
+        RegexRubyRenderer.new(regex, insertion)
       when "egrep"
-	RegexEgrepRenderer.new(regex, insertion)
+        RegexEgrepRenderer.new(regex, insertion)
       else
-	raise "Unknown type: #{regex}"
+        raise "Unknown type: #{regex}"
       end
     end
     module_function :new
   end
-
 end
-
