@@ -31,7 +31,6 @@ task :clean do
 end
 
 task :test => RESOURCES do
-  require 'test_helper'
   Rake::TestTask.new do |t|
     t.libs << "test"
     t.test_files = FileList['test/*.rb']
