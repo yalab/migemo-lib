@@ -9,7 +9,7 @@ require 'migemo-cache'
 
 Test::Unit::TestCase.module_eval do
   def migemo_dict
-    @dict ||= MigemoStaticDict.new(File.dirname(File.expand_path(__FILE__)) + '/test-dict')
+    @dict ||= MigemoStaticDict.new(File.dirname(File.expand_path(__FILE__)) + '/../data/test-dict')
   end unless method_defined?(:migemo_dict)
 
   def user_dict
