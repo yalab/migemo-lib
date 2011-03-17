@@ -10,19 +10,25 @@ MIGEMO_DICT  = 'data/migemo-dict'
 MIGEMO_INDEX = 'data/migemo-dict.idx'
 MIGEMO_CHARS = 'data/migemo-chars'
 MIGEMO_CACHE = 'data/migemo-dict.cache'
+MIGEMO_INDEX_CACHE = 'data/migemo-dict.cache.idx'
+
+RESOURCES = [MIGEMO_DICT, MIGEMO_INDEX, MIGEMO_CHARS, MIGEMO_CACHE, MIGEMO_INDEX_CACHE]
 
 task :default => :test
-task :setup   => [MIGEMO_DICT, MIGEMO_INDEX]
-task :test => MIGEMO_DICT do
-  Rake::TestTask.new do |t|
-    t.libs << "test"
-    t.test_files = FileList['test/*.rb']
+task :setup   => RESOURCES
+task :clean do
+  RESOURCES.each do |f|
+    if File.exists?(f)
+      p f
+      File.unlink(f)
+    end
   end
 end
 
-task :clean do
-  [SKK_DICT, MIGEMO_DICT].each do |f|
-      File.unlink("#{ROOT}/#{f}")
+task :test => RESOURCES do
+  Rake::TestTask.new do |t|
+    t.libs << "test"
+    t.test_files = FileList['test/*.rb']
   end
 end
 
