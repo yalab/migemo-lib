@@ -5,6 +5,7 @@ require 'migemo'
 require 'migemo-convert'
 require 'migemo-index'
 require 'migemo-chars'
+require 'migemo-cache'
 
 Test::Unit::TestCase.module_eval do
   def migemo_dict
