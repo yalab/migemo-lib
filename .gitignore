@@ -5,3 +5,5 @@ data/SKK-JISYO.L
 data/migemo-dict
 data/migemo-dict.idx
 data/migemo-chars
+data/migemo-dict.cache
+data/migemo-dict.cache.idx
