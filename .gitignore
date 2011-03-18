@@ -1,3 +1,12 @@
 tests/tmp.syntax
 tests/test-dict.idx
 tests/tmp.*
+data/SKK-JISYO.L
+data/migemo-dict
+data/migemo-dict.idx
+data/migemo-chars
+data/migemo-dict.cache
+data/migemo-dict.cache.idx
+data/test-dict.cache
+data/test-dict.cache.idx
+*.gem
