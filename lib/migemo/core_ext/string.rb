@@ -53,4 +53,8 @@ class String
   def to_fullwidth
     self.gsub(HANZEN_RE) {|s| HANZEN_TAB[s]}
   end
+
+  def prefix_match (string)
+    self[0, string.length] <=> string
+  end
 end

@@ -9,12 +9,7 @@
 # the GNU General Public License version 2.
 
 require 'bsearch'
-
-class String
-  def prefix_match (string)
-    self[0, string.length] <=> string
-  end
-end
+require 'migemo/core_ext/string'
 
 class MigemoDictItem
   def initialize(key, values)
