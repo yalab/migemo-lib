@@ -45,6 +45,34 @@ class Migemo
   attr_accessor :regex_dict
   attr_accessor :with_paren
 
+  def lookup
+    if @pattern == ""
+      return RegexAlternation.new
+    end
+    result = if @dict_cache
+               lookup_cache || lookup0
+             else
+               lookup0
+             end
+    if @user_dict
+      lookup_user_dict.each{|x| result.push(x) }
+    end
+    result
+  end
+
+  def regex_tree
+    lookup
+  end
+
+  def regex
+    regex = lookup
+    renderer = RegexRendererFactory.new(regex, @type, @insertion)
+    renderer.with_paren = @with_paren
+    string = renderer.render
+    string = renderer.join_regexes(string, lookup_regex_dict) if @regex_dict
+    string
+  end
+
   private
   # `do'   => (ど)
   # `d'    => (っ だ ぢ づ で ど)
@@ -151,34 +179,5 @@ class Migemo
       regexes += item.values
     end
     regexes
-  end
-
-  public
-  def lookup
-    if @pattern == ""
-      return RegexAlternation.new
-    end
-    result = if @dict_cache
-               lookup_cache || lookup0
-             else
-               lookup0
-             end
-    if @user_dict
-      lookup_user_dict.each{|x| result.push(x) }
-    end
-    result
-  end
-
-  def regex_tree
-    lookup
-  end
-
-  def regex
-    regex = lookup
-    renderer = RegexRendererFactory.new(regex, @type, @insertion)
-    renderer.with_paren = @with_paren
-    string = renderer.render
-    string = renderer.join_regexes(string, lookup_regex_dict) if @regex_dict
-    string
   end
 end

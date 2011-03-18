@@ -26,6 +26,38 @@ class MigemoServer
     @count = 0
   end
 
+  def accept
+    while true
+      socket = @server.accept
+      t = Thread.new do
+	s = socket
+	@count += 1
+	path = s.gets(CRLF)
+	true while s.gets(CRLF) != CRLF
+	next if path == nil
+	method, url, version = path.split(/\s/)
+	if method == "GET"
+	  query = url.split("?")[1]
+	  write_log(s, query)
+	  if query
+	    begin
+	      regex = do_migemo(s, query)
+	      print_result(s, regex)
+	    rescue => error
+	      print_http(s, HEADER_ERROR, error.message)
+	    end
+	  else
+	    print_form(s)
+	  end
+	else
+	  s.syswrite 'HTTP/1.0 501 Not Implemented' + CRLF + CRLF
+	end
+	s.close
+      end
+      t.abort_on_exception = true
+    end
+  end
+
   private
   def check_params (socket, params)
     ['pattern', 'dict'].each do |key|
@@ -118,39 +150,6 @@ EOF
   def write_log (socket, query)
     remote_host = (socket.peeraddr[2] or socket.peeraddr[3])
     $stderr.print "#{Time.new}: #{remote_host}: #{query}\n"
-  end
-
-  public
-  def accept
-    while true
-      socket = @server.accept
-      t = Thread.new do
-	s = socket
-	@count += 1
-	path = s.gets(CRLF)
-	true while s.gets(CRLF) != CRLF
-	next if path == nil
-	method, url, version = path.split(/\s/)
-	if method == "GET"
-	  query = url.split("?")[1]
-	  write_log(s, query)
-	  if query
-	    begin
-	      regex = do_migemo(s, query)
-	      print_result(s, regex)
-	    rescue => error
-	      print_http(s, HEADER_ERROR, error.message)
-	    end
-	  else
-	    print_form(s)
-	  end
-	else
-	  s.syswrite 'HTTP/1.0 501 Not Implemented' + CRLF + CRLF
-	end
-	s.close
-      end
-      t.abort_on_exception = true
-    end
   end
 end
 

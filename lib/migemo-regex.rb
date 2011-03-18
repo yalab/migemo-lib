@@ -47,6 +47,22 @@ module MigemoRegex
     end
     attr_reader :regex
 
+    def push (item)
+      if item and item != ""
+        @regex.push(item)
+      end
+    end
+
+    def uniq
+      @regex.uniq
+    end
+
+    def optimize (level)
+      @regex = optimize1(@regex) if level >= 1
+      @regex = optimize2(@regex) if level >= 2
+      @regex = optimize3(@regex) if level >= 3
+    end
+
     private
     # ["運", "運動", "運転", "日本", "日本語"] => ["安" "運" "日本"]
     # (運|運動|運転|日本|日本語) => (安|運|日本)
@@ -120,23 +136,6 @@ module MigemoRegex
         end
       end
     end
-
-    public
-    def push (item)
-      if item and item != ""
-        @regex.push(item)
-      end
-    end
-
-    def uniq
-      @regex.uniq
-    end
-
-    def optimize (level)
-      @regex = optimize1(@regex) if level >= 1
-      @regex = optimize2(@regex) if level >= 2
-      @regex = optimize3(@regex) if level >= 3
-    end
   end
 
   class RegexMetachars
@@ -181,6 +180,20 @@ module MigemoRegex
       @with_paren = false
     end
     attr_accessor :with_paren
+
+    def render
+      if @with_paren  # e.g. "(a|b|c)"
+        render0(@regex)
+      else            # e.g. "a|b|c"
+        @regex.map do |x|
+          render0(x)
+        end.join @meta.bar
+      end
+    end
+
+    def join_regexes (string, regexes)
+      ([string] + regexes).join @meta.bar
+    end
 
     private
     def render_alternation (regex)
@@ -244,21 +257,6 @@ module MigemoRegex
       else
         raise "unexpected type: #{x} of #{x.class}"
       end
-    end
-
-    public
-    def render
-      if @with_paren  # e.g. "(a|b|c)"
-        render0(@regex)
-      else            # e.g. "a|b|c"
-        @regex.map do |x|
-          render0(x)
-        end.join @meta.bar
-      end
-    end
-
-    def join_regexes (string, regexes)
-      ([string] + regexes).join @meta.bar
     end
   end
 

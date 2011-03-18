@@ -28,6 +28,11 @@ class MigemoDict
     @dict  = File.new(filename)
   end
 
+  def lookup (pattern)
+    pattern = pattern.downcase
+    raise "nil pattern" if pattern == nil
+  end
+
   private
   def decompose (line)
     array = line.chomp.split("\t").delete_if do |x| x == nil end
@@ -37,12 +42,6 @@ class MigemoDict
     raise if values == nil
     return key, values
   end
-
-  public
-  def lookup (pattern)
-    pattern = pattern.downcase
-    raise "nil pattern" if pattern == nil
-  end
 end
 
 class MigemoStaticDict < MigemoDict
@@ -51,13 +50,6 @@ class MigemoStaticDict < MigemoDict
     @index = File.new(filename + ".idx").read.unpack "N*"
   end
 
-  private
-  def get_line (index)
-    @dict.seek(index)
-    @dict.gets
-  end
-
-  public
   def lookup (pattern)
     range = @index.bsearch_range do |idx| 
       key, values = decompose(get_line(idx))
@@ -69,6 +61,12 @@ class MigemoStaticDict < MigemoDict
         yield(MigemoDictItem.new(key, values)) 
       end
     end
+  end
+
+  private
+  def get_line (index)
+    @dict.seek(index)
+    @dict.gets
   end
 end
 
@@ -126,5 +124,3 @@ class MigemoDictCache
     end
   end
 end
-
-
