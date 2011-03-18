@@ -3,9 +3,9 @@ Gem::Specification.new do |spec|
   spec.authors  = ['Satoru Takabayashi', 'Atsushi Yoshida']
   spec.email    = 'rudeboyjet@gmail.com'
   spec.homepage = 'https://github.com/yalab/migemo'
-  spec.name     = "migemo"
+  spec.name     = "migemo-lib"
   spec.version  = Migemo::VERSION::STRING
-  spec.files    = Dir.glob("{doc,lib,test}/**/*") + ['ChangeLog', 'README', 'AUTHORS'] + ['data/migemo-dict', 'data/migemo-dict.idx', 'data/migemo-dict.cache', 'data/migemo-dict.cache.idx']
+  spec.files    = Dir.glob("{doc,lib,test}/**/*") + ['README', 'data/migemo-dict', 'data/migemo-dict.idx', 'data/migemo-dict.cache', 'data/migemo-dict.cache.idx']
   spec.license  = "Ruby's"
   spec.summary  = 'a tool for Japanese incremental search.'
   spec.description = <<EOS

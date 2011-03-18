@@ -1,8 +1,6 @@
-migemo - a tool for Japanese incremental search.
+migemo - a library for Japanese incremental search.
 
-Please visit the web site for details.
-<http://migemo.namazu.org/>
+This library is fork from 'http://0xcc.net/migemo/'.
+This is not support emacs, only ruby's tool.
 
--- 
-Satoru Takabayashi
-<satoru@namazu.org>
+Original Author is 'Satoru Takabayashi'.

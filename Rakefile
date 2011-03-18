@@ -18,9 +18,8 @@ MIGEMO_INDEX = 'data/migemo-dict.idx'
 MIGEMO_CHARS = 'data/migemo-chars'
 MIGEMO_CACHE = 'data/migemo-dict.cache'
 MIGEMO_INDEX_CACHE = 'data/migemo-dict.cache.idx'
-ELISP        = 'elisp/migemo.el'
 
-RESOURCES = [MIGEMO_DICT, MIGEMO_INDEX, MIGEMO_CHARS, MIGEMO_CACHE, MIGEMO_INDEX_CACHE, ELISP]
+RESOURCES = [MIGEMO_DICT, MIGEMO_INDEX, MIGEMO_CHARS, MIGEMO_CACHE, MIGEMO_INDEX_CACHE]
 
 task :default => :test
 task :setup   => RESOURCES
@@ -66,15 +65,4 @@ end
 
 file MIGEMO_CACHE => [MIGEMO_CHARS, MIGEMO_DICT] do |t|
   Migemo::Cache.new(MIGEMO_DICT, MIGEMO_CHARS).generate.save(MIGEMO_CACHE)
-end
-
-file ELISP do |t|
-  lisp_in = nil
-  File.open(ELISP + '.in') do |f|
-    lisp_in = f.read
-  end
-  lisp_in.gsub!(/@pkgdatadir@/, ROOT + '/data')
-  File.open(ELISP, 'w') do |f|
-    f.write(lisp_in)
-  end
 end
