@@ -12,7 +12,7 @@
 $LOAD_PATH << File.dirname(File.expand_path(__FILE__))
 require 'migemo-dict'
 require 'migemo-regex'
-require 'version'
+require 'migemo/version'
 require 'romkan'
 include MigemoRegex
 
