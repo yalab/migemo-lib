@@ -7,3 +7,5 @@ data/migemo-dict.idx
 data/migemo-chars
 data/migemo-dict.cache
 data/migemo-dict.cache.idx
+data/test-dict.cache
+data/test-dict.cache.idx
