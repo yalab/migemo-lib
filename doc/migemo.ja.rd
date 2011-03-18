@@ -3,9 +3,6 @@
 Ruby/Migemo はローマ字のまま日本語をインクリメンタル検索する
 ためのライブラリです。
 
-最新版は ((<URL:http://migemo.namazu.org/>)) から入手可能で
-す。
-
 === 使用例
 
   % cat sample.rb
