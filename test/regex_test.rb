@@ -8,7 +8,7 @@ class RegexTest < Test::Unit::TestCase
       10.times{ patterns << lines.slice!(rand(lines.length)) }
     end
     patterns.each do |pattern|
-      migemo = Migemo.new(migemo_dict, pattern)
+      migemo = Migemo.new(pattern, migemo_dict)
       assert Regexp.compile(migemo.regex)
     end
   end

@@ -19,12 +19,19 @@ include MigemoRegex
 
 
 class Migemo
-  def initialize (dict, pattern)
+  def initialize (pattern, dict=nil)
+    @static_dict = if dict.nil?
+                     MigemoStaticDict.new(File.dirname(File.expand_path(__FILE__)) + '/../data/migemo-dict')
+                   elsif dict.is_a?(String)
+                     MigemoStaticDict.new(dict)
+                   else
+                     dict
+                   end
     @type = "ruby"
     @pattern = pattern
     @insertion = ""
     @optimization = 3
-    @static_dict = dict
+
     @dict_cache = nil
     @user_dict = nil
     @regex_dict = nil

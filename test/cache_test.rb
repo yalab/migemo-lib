@@ -16,7 +16,7 @@ class CacheTest < Test::Unit::TestCase
   def test_caches
     @words.each do |w|
       [:normal, :cache].each do |ivar|
-        migemo = Migemo.new(migemo_dict, w)
+        migemo = Migemo.new(w, migemo_dict)
         migemo.user_dict = user_dict
         migemo.regex_dict = regex_dict
         instance_variable_set("@#{ivar}", migemo)
