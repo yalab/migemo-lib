@@ -79,7 +79,7 @@ def main
   files = ["-"]
   files = ARGV if ARGV.length > 0
 
-  migemo = Migemo.new($static_dict, $pattern)
+  migemo = Migemo.new($pattern, $static_dict)
   migemo.dict_cache = $dict_cache if $dict_cache
   migemo.user_dict = $user_dict if $user_dict
   migemo.regex_dict = $regex_dict if $regex_dict

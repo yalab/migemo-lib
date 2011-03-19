@@ -127,7 +127,7 @@ def main
   end
 
   generate_regex_str = lambda {|pattern, with_paren|
-    migemo = Migemo.new(static_dict, pattern)
+    migemo = Migemo.new(pattern, static_dict)
     migemo.user_dict = user_dict if user_dict
     migemo.regex_dict = regex_dict if regex_dict
     migemo.dict_cache = dict_cache if dict_cache

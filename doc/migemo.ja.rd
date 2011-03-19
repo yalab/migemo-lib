@@ -14,7 +14,7 @@ Ruby/Migemo はローマ字のまま日本語をインクリメンタル検索�
 
   while line = gets
     pattern = line.chomp
-    migemo = Migemo.new(dict, pattern)
+    migemo = Migemo.new(pattern,dict)
     migemo.optimization = 3
     migemo.dict_cache = dict_cache
     migemo.user_dict = user_dict
@@ -36,9 +36,9 @@ Ruby/Migemo はローマ字のまま日本語をインクリメンタル検索�
 --- MigemoRegexDict#new(filename)
     正規表現辞書のオブジェクトを生成する
 
---- Migemo#new(dict, pattern)
+--- Migemo#new(pattern, dict)
     Migemoオブジェクトを生成する。dict には
-    MigemoStaticDict オブジェクトを、pattern には検索パター
+    MigemoStaticDict オブジェクトかStringを、pattern には検索パター
     ンを与える
 
 --- Migemo#regex

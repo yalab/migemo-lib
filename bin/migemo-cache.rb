@@ -17,7 +17,7 @@ class Migemo
         pattern = line.chomp!
         next if pattern == "" || pattern.nil?
 
-        migemo = Migemo.new(@static_dict, pattern)
+        migemo = Migemo.new(pattern, @static_dict)
         migemo.optimization = 3
         data = Marshal.dump(migemo.regex_tree)
         output = [pattern.length].pack("N") + pattern + [data.length].pack("N") + data
