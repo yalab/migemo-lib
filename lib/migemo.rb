@@ -18,7 +18,8 @@ require 'romkan'
 
 
 module Migemo
-end
-def Migemo.new(pattern, dict=nil)
-  Migemo::Regex.new(pattern, dict)
+  def new(pattern, dict=nil)
+    Migemo::Regex.new(pattern, dict)
+  end
+  module_function :new
 end
