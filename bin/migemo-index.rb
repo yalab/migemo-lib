@@ -11,7 +11,7 @@
 #
 # Index Migemo's dictionary.
 #
-class Migemo
+module Migemo
   class Index
     def initialize(lines)
       @lines = lines.is_a?(IO) ? lines.readlines : lines

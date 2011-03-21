@@ -1,6 +1,6 @@
 require File.dirname(File.expand_path(__FILE__)) + '/../lib/migemo'
 
-class Migemo
+module Migemo
   class Cache
     def initialize(dict, chars)
       @dict = dict

@@ -13,7 +13,7 @@
 # Convert a SKK's dictionary into Migemo's.
 #
 require 'romkan'
-class Migemo
+module Migemo
   class Convert
     HIRAGANA = "[ぁ-んー〜]"
     KANJI = "[亜-瑤]"

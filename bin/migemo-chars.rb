@@ -6,7 +6,7 @@ class Array
   end
 end
 
-class Migemo
+module Migemo
   class Chars
     def initialize(src_file)
       File.open("data/migemo-dict", 'r:utf-8') do |f|

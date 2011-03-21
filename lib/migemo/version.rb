@@ -1,4 +1,4 @@
-class Migemo
+module Migemo
   module VERSION #:nodoc:
     MAJOR = 0
     MINOR = 4
