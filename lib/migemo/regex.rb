@@ -8,7 +8,7 @@
 #
 # You can redistribute it and/or modify it under the terms of 
 # the GNU General Public License version 2.
-
+require 'migemo/array'
 module Migemo
   class Regex
     def initialize (pattern, dict=nil)
@@ -39,7 +39,7 @@ module Migemo
 
     def lookup
       if @pattern == ""
-        return Regex::Alternation.new
+        return Alternation.new
       end
       result = if @dict_cache
                  lookup_cache || lookup0
@@ -171,37 +171,6 @@ module Migemo
         regexes += item.values
       end
       regexes
-    end
-
-    class Alternation < Array
-      def sort
-        self.clone.replace(super)
-      end
-
-      def uniq
-        self.clone.replace(super)
-      end
-
-      def map
-        self.clone.replace(super {|x| yield(x)})
-      end
-
-      def delete_if
-        self.clone.replace(super {|x| yield(x)})
-      end
-
-      def select
-        self.clone.replace(super {|x| yield(x)})
-      end
-    end
-
-    class Concatnation < Array
-      def map
-        self.clone.replace(super {|x| yield(x)})
-      end
-    end
-
-    class CharClass < Array
     end
 
     class Compiler
