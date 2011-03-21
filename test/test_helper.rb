@@ -9,14 +9,14 @@ require 'migemo-cache'
 
 Test::Unit::TestCase.module_eval do
   def migemo_dict
-    @dict ||= MigemoStaticDict.new(File.dirname(File.expand_path(__FILE__)) + '/../data/test-dict')
+    @dict ||= Migemo::Dict::Static.new(File.dirname(File.expand_path(__FILE__)) + '/../data/test-dict')
   end unless method_defined?(:migemo_dict)
 
   def user_dict
-    @user_dict ||= MigemoUserDict.new(File.dirname(File.expand_path(__FILE__)) + '/../data/user-dict.sample')
+    @user_dict ||= Migemo::Dict::Users.new(File.dirname(File.expand_path(__FILE__)) + '/../data/user-dict.sample')
   end unless method_defined?(:user_dict)
 
   def regex_dict
-    @regex_dict ||= MigemoUserDict.new(File.dirname(File.expand_path(__FILE__)) + '/../data/regex-dict.sample')
+    @regex_dict ||= Migemo::Dict::Users.new(File.dirname(File.expand_path(__FILE__)) + '/../data/regex-dict.sample')
   end unless method_defined?(:regex_dict)
 end

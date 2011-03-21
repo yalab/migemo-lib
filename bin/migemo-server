@@ -75,17 +75,17 @@ class MigemoServer
 
     if params['user-dict'].first
       dictname = File.join(@rootdir, params['user-dict'].first)
-      user_dict = MigemoUserDict.new(dictname)
+      user_dict = Migemo::Dict::Users.new(dictname)
     end
     if params['regex-dict'].first
       dictname = File.join(@rootdir, params['regex-dict'].first)
-      regex_dict = MigemoUserDict.new(dictname)
+      regex_dict = Migemo::Dict::Users.new(dictname)
     end
 
     dictname = File.join(@rootdir, params['dict'].first)
-    static_dict = MigemoStaticDict.new(dictname)
+    static_dict = Migemo::Dict::Static.new(dictname)
     cachename = File.join(@rootdir, params['dict'].first + ".cache")
-    dict_cache  = MigemoDictCache.new(cachename)
+    dict_cache  = Migemo::Dict::Cache.new(cachename)
 
     migemo = Migemo.new(static_dict, params['pattern'].first)
     migemo.dict_cache = dict_cache if dict_cache

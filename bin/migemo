@@ -96,18 +96,18 @@ def main
                        ARGV.shift
                      end
   static_dict = if File.readable?(static_dict_file)
-                  MigemoStaticDict.new(static_dict_file)
+                  Migemo::Dict::Static.new(static_dict_file)
                 else
                   raise "static dictionary not found: #{static_dict_file}"
                 end
 
   if options['nocache'].nil? && File.readable?(static_dict_file + ".cache")
-    dict_cache = MigemoDictCache.new(static_dict_file + ".cache")
+    dict_cache = Migemo::Dict::Cache.new(static_dict_file + ".cache")
   end
 
   if options['user-dict']
     if File.readable?(options['user-dict'])
-      user_dict = MigemoUserDict.new(options['user-dict'])
+      user_dict = Migemo::Dict::Users.new(options['user-dict'])
     else
       raise "user dictionary not found: #{options['user-dict']}"
     end
@@ -115,7 +115,7 @@ def main
 
   if options['regex-dict']
     if File.readable?(options['regex-dict'])
-      regex_dict = MigemoUserDict.new(options['regex-dict'])
+      regex_dict = Migemo::Dict::Users.new(options['regex-dict'])
     else
       raise "regex dictionary not found: #{options['regex-dict']}"
     end

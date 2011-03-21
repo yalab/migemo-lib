@@ -13,9 +13,9 @@ module Migemo
   class Regex
     def initialize (pattern, dict=nil)
       @static_dict = if dict.nil?
-                       MigemoStaticDict.new(File.dirname(File.expand_path(__FILE__)) + '/../../data/migemo-dict')
+                       Migemo::Dict::Static.new(File.dirname(File.expand_path(__FILE__)) + '/../../data/migemo-dict')
                      elsif dict.is_a?(String)
-                       MigemoStaticDict.new(dict)
+                       Migemo::Dict::Static.new(dict)
                      else
                        dict
                      end

@@ -4,7 +4,7 @@ module Migemo
   class Cache
     def initialize(dict, chars)
       @dict = dict
-      @static_dict = MigemoStaticDict.new(dict)
+      @static_dict = Migemo::Dict::Static.new(dict)
       @word_file = chars
     end
 

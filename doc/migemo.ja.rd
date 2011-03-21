@@ -8,9 +8,9 @@ Ruby/Migemo はローマ字のまま日本語をインクリメンタル検索�
   % cat sample.rb
   require 'migemo'
 
-  dict = MigemoStaticDict.new("migemo-dict")
-  dict_cache  = MigemoDictCache.new("migemo-dict" + ".cache")
-  user_dict = MigemoUserDict.new("user-dict")
+  dict = Migemo::Dict::Static.new("migemo-dict")
+  dict_cache  = Migemo::Dict::Cache.new("migemo-dict" + ".cache")
+  user_dict = Migemo::Dict::Users.new("user-dict")
 
   while line = gets
     pattern = line.chomp
@@ -24,18 +24,18 @@ Ruby/Migemo はローマ字のまま日本語をインクリメンタル検索�
 
 == API
 
---- MigemoStaticDict#new(filename)
+--- Migemo::Dict::Static#new(filename)
     静的な辞書のオブジェクトを生成する
 
---- MigemoDictCache#new(filename)
+--- Migemo::Dict::Cache#new(filename)
     静的な辞書のキャッシュのオブジェクトを生成する
 
---- MigemoUserDict#new(filename)
+--- Migemo::Dict::Users#new(filename)
     ユーザ辞書のオブジェクトを生成する
 
 --- Migemo#new(pattern, dict)
     Migemoオブジェクトを生成する。dict には
-    MigemoStaticDict オブジェクトかStringを、pattern には検索パター
+    Migemo::Dict::Static オブジェクトかStringを、pattern には検索パター
     ンを与える
 
 --- Migemo#regex

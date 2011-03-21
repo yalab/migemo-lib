@@ -52,12 +52,12 @@ def parse_options
   end
 
   dictname = ARGV.shift
-  $static_dict = MigemoStaticDict.new(dictname)
-  $dict_cache = MigemoDictCache.new(dictname + ".cache")
+  $static_dict = Migemo::Dict::Static.new(dictname)
+  $dict_cache = Migemo::Dict::Cache.new(dictname + ".cache")
 
   if options['user-dict'] != nil 
     if File.readable?(options['user-dict'])
-      $user_dict = MigemoUserDict.new(options['user-dict'])
+      $user_dict = Migemo::Dict::Users.new(options['user-dict'])
     else
       raise "user dictionary not found: #{options['user-dict']}"
     end

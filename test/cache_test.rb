@@ -10,7 +10,7 @@ class CacheTest < Test::Unit::TestCase
     unless File.exists?(dict_file + '.cache')
       Migemo::Cache.new(dict_file, words).generate.save(dict_file + '.cache')
     end
-    @cache_dict = MigemoDictCache.new(dict_file + '.cache')
+    @cache_dict = Migemo::Dict::Cache.new(dict_file + '.cache')
   end
 
   def test_caches
