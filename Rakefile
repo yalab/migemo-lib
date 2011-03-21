@@ -18,8 +18,9 @@ MIGEMO_INDEX = 'data/migemo-dict.idx'
 MIGEMO_CHARS = 'data/migemo-chars'
 MIGEMO_CACHE = 'data/migemo-dict.cache'
 MIGEMO_INDEX_CACHE = 'data/migemo-dict.cache.idx'
+TEST_DICT_CACHE   = 'data/test-dict.cache'
 
-RESOURCES = [MIGEMO_DICT, MIGEMO_INDEX, MIGEMO_CHARS, MIGEMO_CACHE, MIGEMO_INDEX_CACHE]
+RESOURCES = [MIGEMO_DICT, MIGEMO_INDEX, MIGEMO_CHARS, MIGEMO_CACHE, MIGEMO_INDEX_CACHE, TEST_DICT_CACHE]
 
 task :default => :test
 task :setup   => RESOURCES
@@ -65,4 +66,8 @@ end
 
 file MIGEMO_CACHE => [MIGEMO_CHARS, MIGEMO_DICT] do |t|
   Migemo::Cache.new(MIGEMO_DICT, MIGEMO_CHARS).generate.save(MIGEMO_CACHE)
+end
+
+file TEST_DICT_CACHE => MIGEMO_CHARS do |t|
+  Migemo::Cache.new('data/test-dict', MIGEMO_CHARS).generate.save(TEST_DICT_CACHE)
 end
