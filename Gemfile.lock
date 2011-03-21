@@ -1,0 +1,14 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    bsearch (1.5.0)
+    romkan (0.4.0)
+    ruby-prof (0.9.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bsearch
+  romkan
+  ruby-prof
