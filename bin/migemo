@@ -115,7 +115,7 @@ def main
 
   if options['regex-dict']
     if File.readable?(options['regex-dict'])
-      regex_dict = MigemoRegexDict.new(options['regex-dict'])
+      regex_dict = MigemoUserDict.new(options['regex-dict'])
     else
       raise "regex dictionary not found: #{options['regex-dict']}"
     end

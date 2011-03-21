@@ -90,9 +90,6 @@ class MigemoUserDict < MigemoDict
   end
 end
 
-class MigemoRegexDict < MigemoUserDict
-end
-
 class MigemoDictCache
   def initialize (filename)
     @dict  = File.new(filename)

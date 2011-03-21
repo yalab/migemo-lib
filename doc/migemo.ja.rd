@@ -33,9 +33,6 @@ Ruby/Migemo はローマ字のまま日本語をインクリメンタル検索�
 --- MigemoUserDict#new(filename)
     ユーザ辞書のオブジェクトを生成する
 
---- MigemoRegexDict#new(filename)
-    正規表現辞書のオブジェクトを生成する
-
 --- Migemo#new(pattern, dict)
     Migemoオブジェクトを生成する。dict には
     MigemoStaticDict オブジェクトかStringを、pattern には検索パター

@@ -79,7 +79,7 @@ class MigemoServer
     end
     if params['regex-dict'].first
       dictname = File.join(@rootdir, params['regex-dict'].first)
-      regex_dict = MigemoRegexDict.new(dictname)
+      regex_dict = MigemoUserDict.new(dictname)
     end
 
     dictname = File.join(@rootdir, params['dict'].first)

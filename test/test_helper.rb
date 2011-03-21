@@ -17,6 +17,6 @@ Test::Unit::TestCase.module_eval do
   end unless method_defined?(:user_dict)
 
   def regex_dict
-    @regex_dict ||= MigemoRegexDict.new(File.dirname(File.expand_path(__FILE__)) + '/../data/regex-dict.sample')
+    @regex_dict ||= MigemoUserDict.new(File.dirname(File.expand_path(__FILE__)) + '/../data/regex-dict.sample')
   end unless method_defined?(:regex_dict)
 end
