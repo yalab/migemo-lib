@@ -150,7 +150,7 @@ def main
       regex_str2 = segments.map {|pattern|
         generate_regex_str.call(pattern, true)
       }.join((options['insert'] or ""))
-      bar = RegexMetacharsFactory.new(options['type']).bar
+      bar = Migemo::Regex::MetacharsFactory.new(options['type']).bar
       regex_str = [regex_str1, regex_str2].join(bar)
     end
 

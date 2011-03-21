@@ -23,6 +23,6 @@ class CommandLineTest < Test::Unit::TestCase
       io.puts("url")
       result = io.gets.chomp
     end
-    assert_match /telnet/, result
+    assert_match(/telnet/, result)
   end
 end

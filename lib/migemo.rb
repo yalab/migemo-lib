@@ -15,8 +15,6 @@ require 'migemo-dict'
 require 'migemo-regex'
 require 'migemo/version'
 require 'romkan'
-include MigemoRegex
-
 
 class Migemo
   def initialize (pattern, dict=nil)
@@ -47,7 +45,7 @@ class Migemo
 
   def lookup
     if @pattern == ""
-      return RegexAlternation.new
+      return Regex::Alternation.new
     end
     result = if @dict_cache
                lookup_cache || lookup0
@@ -66,7 +64,7 @@ class Migemo
 
   def regex
     regex = lookup
-    renderer = RegexRendererFactory.new(regex, @type, @insertion)
+    renderer = Regex::RendererFactory.new(regex, @type, @insertion)
     renderer.with_paren = @with_paren
     string = renderer.render
     string = renderer.join_regexes(string, lookup_regex_dict) if @regex_dict
@@ -148,7 +146,7 @@ class Migemo
   end
 
   def lookup0
-    compiler = RegexCompiler.new
+    compiler = Regex::Compiler.new
     compiler.push(@pattern)
     compiler.push(@pattern.to_fullwidth)
     expand_kanas.each do |x| 
@@ -163,7 +161,7 @@ class Migemo
   end
 
   def lookup_user_dict
-    compiler = RegexCompiler.new
+    compiler = Regex::Compiler.new
     expand_kanas.each do |x| 
       expand_words(@user_dict, x).each do |_x| compiler.push(_x) end
     end
